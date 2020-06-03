@@ -71,9 +71,6 @@ yarn-error.log
 # junit
 junit.xml
 
-# auto generated files
-src/sprite.svg
-
 # backstop data
 backstop_data/bitmaps_reference
 backstop_data/bitmaps_test

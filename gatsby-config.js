@@ -12,7 +12,7 @@ const mqpacker = require('css-mqpacker');
 const flexfixes = require('postcss-flexbugs-fixes');
 
 const svgSprite = fs.readFileSync(
-  path.resolve(__dirname, 'src/sprite.svg'),
+  path.resolve('./src/sprite.svg'),
   'UTF-8',
 );
 

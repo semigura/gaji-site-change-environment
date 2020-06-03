@@ -1,0 +1,49 @@
+@import 'config/theme';
+
+.ProductsSampleList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px -10px -10px;
+  padding: 0;
+  list-style-type: none;
+
+  .ProductsSampleList__Item {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+
+  .ProductsSampleList__Image {
+    margin: 0;
+
+    > img {
+      display: block;
+      width: 100%;
+    }
+
+    > figcaption {
+      padding: 5px 10px;
+      border-right: 1px solid $border-gray-L1;
+      border-bottom: 1px solid $border-gray-L1;
+      border-left: 1px solid $border-gray-L1;
+      background-color: $white;
+      font-size: 14px;
+      line-height: 1.57;
+      text-align: justify;
+    }
+  }
+
+  @include media(tablet) {
+    margin: 0 -20px -20px;
+
+    .ProductsSampleList__Item {
+      width: calc(50% - 40px);
+      margin: 20px;
+    }
+
+    .ProductsSampleList__Image {
+      > figcaption {
+        padding: 10px 20px;
+      }
+    }
+  }
+}

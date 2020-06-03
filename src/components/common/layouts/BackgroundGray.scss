@@ -1,0 +1,22 @@
+@import 'config/theme';
+
+.BackgroundGray {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background-color: $background-gray;
+
+  .BackgroundGray__Container {
+    width: 100%;
+    max-width: 840px;
+    margin: auto;
+    padding: 30px 20px;
+  }
+
+  @include media(tablet) {
+    .BackgroundGray__Container {
+      padding: 50px 20px;
+    }
+  }
+}

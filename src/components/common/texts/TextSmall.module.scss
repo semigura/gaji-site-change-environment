@@ -1,0 +1,12 @@
+@import 'config/theme';
+
+.TextSmall {
+  margin: 0;
+  color: $base;
+  font-size: 14px;
+  line-height: 1.57;
+
+  & + .TextSmall {
+    margin-top: 20px;
+  }
+}

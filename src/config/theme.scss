@@ -1,0 +1,41 @@
+$sans-serif: -apple-system, 'BlinkMacSystemFont', 'Helvetica', 'Arial', sans-serif,
+  'Apple Color Emoji';
+$secondary-sans-serif: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+$serif: 'Georgia', 'Times New Roman', 'Times', serif;
+$florencesans: 'Florencesans', sans-serif;
+
+$white: #fff;
+$black: #000;
+$gray-D2: #333;
+$gray-D1: #7f7f7f;
+$gray: #ccc;
+$gray-L1: #e5e5e5;
+$gray-L2: #f2f2f2;
+$blue-gray-D1: #7b8a93;
+$blue-gray: #98b5c6;
+$blue-gray-L1: #eff1f2;
+$red: #f00;
+
+$base: $gray-D2;
+$caution: $red;
+$background-blue-gray: $blue-gray-L1;
+$background-gray: $gray-L2;
+$border-gray: $gray;
+$border-gray-L1: $gray-L1;
+
+@mixin media($breakpoint) {
+  $breakpoints: (
+    'small': 'all and (max-width: 374px)',
+    'tablet': 'all and (min-width: 640px)',
+    'pc': 'all and (min-width: 940px)',
+  );
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin safe-area-inset {
+  padding-right: env(safe-area-inset-right);
+  padding-left: env(safe-area-inset-left);
+}

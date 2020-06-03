@@ -1,0 +1,89 @@
+@import 'config/theme';
+
+.OutputWrapper {
+  :global {
+    .CaseStudyId {
+      margin-top: 0;
+
+      @include media(pc) {
+        margin-top: 70px;
+      }
+    }
+
+    .Figure {
+      > figcaption {
+        font-size: 14px;
+      }
+    }
+
+    .LinkListTitle {
+      margin: 100px 0 28px;
+
+      @include media(pc) {
+        margin-bottom: 50px;
+      }
+    }
+
+    .ContactLink {
+      margin-top: 100px;
+
+      .ContactLink__Container {
+        padding-bottom: 36px;
+
+        @include media(pc) {
+          padding-bottom: 100px;
+        }
+      }
+    }
+  }
+}
+
+.Output {
+  color: $base;
+
+  .Output__Title {
+    margin: 20px 0;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.39;
+    text-align: justify;
+  }
+
+  .Output__Eyecatch {
+    margin: 20px 0 0;
+
+    > img {
+      display: block;
+    }
+
+    > figcaption {
+      margin-top: 8px;
+      color: $base;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @include media(pc) {
+      margin: 40px 0 0;
+    }
+  }
+
+  .Output__Section {
+    margin-top: 48px;
+
+    &:nth-of-type(n + 2) {
+      margin-top: 20px;
+
+      @include media(pc) {
+        margin-top: 48px;
+      }
+    }
+  }
+}
+
+.MD_OutputTextsWrapper {
+  > p {
+    font-size: 14px;
+    line-height: 1.86;
+  }
+}

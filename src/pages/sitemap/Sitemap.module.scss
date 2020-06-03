@@ -1,0 +1,28 @@
+@import 'config/theme';
+
+.Sitemap {
+  padding-bottom: 80px;
+
+  @include media(pc) {
+    padding-top: 50px;
+  }
+
+  .Sitemap__Link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[href^='http'] {
+      &::after {
+        content: url(../../static/icons/blank.svg);
+        display: inline-block;
+        width: 14px;
+        height: 12px;
+        margin-left: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+@import 'config/theme';
+
+.Footer {
+  display: block;
+  width: 100%;
+
+  .Footer__Links {
+    @include safe-area-inset;
+
+    background-color: $base;
+    color: $white;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .Footer__LinksInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    min-height: 82px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .Footer__Logo {
+    display: block;
+    width: 128px;
+    height: 24px;
+    color: inherit;
+
+    @include media(tablet) {
+      width: 166px;
+      height: 30px;
+    }
+  }
+
+  .Footer__Icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .Footer__List {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+  }
+
+  .Footer__ListItem {
+    display: inline-block;
+    margin-left: 30px;
+    padding: 0;
+  }
+
+  .Footer__SNS {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .Footer__Footer {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 58px;
+    margin: auto;
+    padding: 20px;
+    color: $base;
+
+    @include media(pc) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+  }
+
+  .Footer__MenuList {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media(pc) {
+      width: auto;
+    }
+
+    > li {
+      @include media(pc) {
+        display: inline-block;
+      }
+
+      & + li {
+        margin-top: 6px;
+
+        @include media(pc) {
+          margin-top: 0;
+          margin-left: 44px;
+        }
+      }
+    }
+  }
+
+  .Footer__Link {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.857142857; // 26px
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .Footer__Copyright {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 12px;
+    line-height: 1.5; // 18px
+
+    @include media(pc) {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.RecruitOrderedBox {
+  margin: 0;
+  padding: 0;
+
+  .RecruitOrderedBox__Item {
+    position: relative;
+    margin-bottom: 62px;
+    padding: 17px 22px 13px;
+    list-style-type: none;
+    background-color: $gray-L2;
+
+    &:not(:last-child) {
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        height: 19px;
+        border-right: solid 2px $black;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -39px;
+        left: calc(50% - 6px);
+        width: 14px;
+        height: 14px;
+        transform: rotate(135deg);
+        border-top: solid 2px $black;
+        border-right: solid 2px $black;
+      }
+    }
+  }
+
+  .RecruitOrderedBox__Title {
+    display: inline-block;
+    margin: 0 0 20px;
+    color: $base;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.75;
+    text-align: justify;
+  }
+
+  .RecruitOrderedBox__List {
+    padding-left: 34px;
+  }
+}

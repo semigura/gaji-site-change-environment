@@ -1,0 +1,64 @@
+@import 'config/theme';
+
+.AccessWrapper {
+  :global {
+    .SecondTitle {
+      margin: 40px 0 10px;
+    }
+  }
+}
+
+.Access {
+  padding-bottom: 50px;
+
+  @include media(pc) {
+    padding-top: 65px;
+    padding-bottom: 100px;
+  }
+
+  .Access__Address {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .Access__AddressText {
+    color: $base;
+
+    @include media(pc) {
+      display: inline-block;
+
+      + .Access__AddressText {
+        margin-left: 18px;
+      }
+    }
+  }
+
+  .Access__MapContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    padding-top: 92.54%;
+    overflow: hidden;
+
+    @include media(pc) {
+      padding-top: 72.25%;
+    }
+  }
+
+  .Access__Map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .Access__Guide {
+    margin-top: 25px;
+    margin-bottom: 0;
+    color: $base;
+    font-size: 14px;
+    line-height: 1.86;
+  }
+}

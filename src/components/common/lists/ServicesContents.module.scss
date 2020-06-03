@@ -1,0 +1,59 @@
+@import 'config/theme';
+
+.ServicesContents {
+  border-top: 1px solid $border-gray-L1;
+
+  + .ServicesContents {
+    margin-top: 30px;
+
+    @include media(pc) {
+      margin-top: 50px;
+    }
+  }
+
+  @include media(pc) {
+    display: flex;
+  }
+
+  .ServicesContents__Detail {
+    margin: 0;
+
+    > dt {
+      margin-top: 24px;
+      color: $blue-gray-D1;
+      font-family: $secondary-sans-serif;
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.4;
+
+      @include media(pc) {
+        margin-top: 45px;
+      }
+    }
+
+    > dd {
+      margin: 12px 0 0;
+      color: $base;
+      font-size: 16px;
+      line-height: 2;
+    }
+  }
+
+  .ServicesContents__ImageContainer {
+    margin-top: 16px;
+
+    @include media(pc) {
+      flex-basis: 350px;
+      flex-shrink: 0;
+      margin-top: 50px;
+      margin-left: 30px;
+    }
+  }
+
+  .ServicesContents__Image {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}

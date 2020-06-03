@@ -1,0 +1,105 @@
+@import 'config/theme';
+
+.ServicesWrapper {
+  :global {
+    .ServicesContents {
+      margin-top: 45px;
+
+      @include media(pc) {
+        margin-top: 85px;
+      }
+    }
+
+    .List {
+      margin: 20px 0 12px;
+    }
+
+    .ContactLink {
+      margin-top: 50px;
+
+      @include media(pc) {
+        margin-top: 100px;
+      }
+    }
+
+    .TextBasic {
+      margin-top: 30px;
+      text-align: center;
+
+      @include media(pc) {
+        margin-top: 50px;
+      }
+    }
+
+    .LinkList {
+      margin-top: 30px;
+
+      @include media(pc) {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+.Services {
+  .Services__Image {
+    display: block;
+    margin: 20px auto;
+
+    @include media(pc) {
+      margin: 45px auto;
+    }
+  }
+
+  .Services__Detail {
+    margin-top: 30px;
+    border-top: 1px solid $border-gray-L1;
+    border-bottom: 1px solid $border-gray-L1;
+
+    @include media(pc) {
+      display: flex;
+      margin-top: 50px;
+    }
+  }
+
+  .Services__DetailList {
+    padding: 25px 0;
+
+    @include media(pc) {
+      width: 50%;
+      margin: 50px 0;
+      padding: 18px 0 22px;
+    }
+
+    & + .Services__DetailList {
+      border-top: 1px solid $border-gray-L1;
+
+      @include media(pc) {
+        padding-left: 30px;
+        border-top: 0;
+        border-left: 1px solid $border-gray-L1;
+      }
+    }
+  }
+
+  .Services__DetailListTitle {
+    margin: 0;
+    color: #666;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.67;
+  }
+
+  .Services__ModelCases {
+    margin-top: 100px;
+  }
+
+  .Services__ModelCasesLink {
+    display: flex;
+    margin: 30px auto 0;
+
+    @include media(pc) {
+      margin-top: 50px;
+    }
+  }
+}

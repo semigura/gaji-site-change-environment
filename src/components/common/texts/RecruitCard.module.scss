@@ -1,0 +1,56 @@
+.RecruitCard {
+  width: calc(100% - 40px);
+  margin: -20px 20px 20px;
+  padding-top: 20px;
+
+  @include media(pc) {
+    width: 240px;
+  }
+
+  .RecruitCard__IconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 223px;
+    border: 1px solid $blue-gray;
+    border-bottom: 0;
+    background-color: mix($white, $blue-gray, 75%);
+
+    @include media(pc) {
+      height: 160px;
+    }
+  }
+
+  .RecruitCard__Icon {
+    width: 110px;
+
+    @include media(pc) {
+      width: auto;
+    }
+  }
+
+  .RecruitCard__Body {
+    padding: 17px 20px 16px;
+    border: 1px solid $blue-gray;
+    border-top: 0;
+
+    @include media(tablet) {
+      padding: 17px 19px 16px;
+    }
+  }
+
+  .RecruitCard__Link {
+    font-weight: 600;
+  }
+
+  .RecruitCard__Description {
+    margin: 14px 0 13px;
+    font-size: 14px;
+    line-height: 1.86;
+    text-align: justify;
+
+    @include media(tablet) {
+      margin: 11px 0 10px;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import 'config/theme';
+
+.TextLink {
+  .TextLink__Link {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: $base;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.57;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &.withIcon {
+    .TextLink__Link {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .TextLink__Icon {
+      padding-left: 6px;
+    }
+  }
+
+  &.isCenter {
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &.isRight {
+    text-align: right;
+
+    .TextLink__Icon {
+      font-weight: 600;
+    }
+  }
+
+  &.isLeft {
+    text-align: left;
+
+    .TextLink__Link {
+      flex-direction: row-reverse;
+    }
+
+    .TextLink__Icon {
+      padding-right: 6px;
+      padding-left: 0;
+      font-weight: 600;
+    }
+  }
+}

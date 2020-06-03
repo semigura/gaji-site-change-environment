@@ -1,0 +1,140 @@
+@import 'config/theme';
+
+.CaseStudiesWrapper {
+  :global {
+    .LinkList {
+      margin: 30px 0 100px;
+
+      @include media(pc) {
+        margin: 50px 0 100px;
+      }
+    }
+
+    .TextBasic {
+      @include media(pc) {
+        text-align: center;
+      }
+    }
+
+    .DetailList {
+      .List {
+        margin-top: 10px;
+
+        @include media(pc) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    br.isPC {
+      display: none;
+
+      @include media(pc) {
+        display: block;
+      }
+    }
+  }
+}
+
+.CaseStudies {
+  @include media(pc) {
+    padding-top: 65px;
+  }
+
+  .CaseStudies__Projects {
+    margin-bottom: 100px;
+  }
+
+  .CaseStudies__ResultsList {
+    margin-bottom: 100px;
+
+    > dl {
+      > dt {
+        > p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .CaseStudies__Title {
+    margin-bottom: 20px;
+
+    @include media(pc) {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.CaseStudiesList {
+  padding: 0;
+
+  @include media(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 980px;
+    margin: 0 auto;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 30.612244898%;
+    }
+  }
+
+  .CaseStudiesList__Item {
+    display: block;
+    min-height: 460px;
+    margin: 20px auto 0;
+    border: 1px solid $border-gray-L1;
+
+    @include media(tablet) {
+      width: 30.612244898%;
+      max-width: none;
+      margin: 40px 0 0;
+    }
+  }
+
+  .CaseStudiesList__Title {
+    margin: 20px 20px 0;
+    padding-left: 10px;
+    border-left: 4px solid $border-gray-L1;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.75;
+    text-decoration: underline;
+  }
+
+  .CaseStudiesList__Link {
+    display: block;
+    height: 100%;
+    color: $base;
+    text-decoration: none;
+
+    &:hover {
+      .CaseStudiesList__Title {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .CaseStudiesList__Thumbnail {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+
+    @include media(tablet) {
+      height: 200px;
+    }
+  }
+
+  .CaseStudiesList__Description {
+    margin: 0;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.857142857;
+  }
+}

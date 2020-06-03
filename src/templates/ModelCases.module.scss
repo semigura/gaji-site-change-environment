@@ -1,0 +1,126 @@
+@import 'config/theme';
+
+.ModelCasesWrapper {
+  :global {
+    .CaseStudyId {
+      margin-top: 0;
+
+      @include media(pc) {
+        margin-top: 70px;
+      }
+    }
+
+    .LinkListTitle {
+      margin: 100px 0 28px;
+
+      @include media(pc) {
+        margin-bottom: 50px;
+      }
+    }
+
+    .ContactLink {
+      margin-top: 100px;
+
+      .ContactLink__Container {
+        padding-bottom: 36px;
+
+        @include media(pc) {
+          padding-bottom: 100px;
+        }
+      }
+    }
+  }
+}
+
+.ModelCasesPickupProjectWrapper {
+  margin-top: 100px;
+
+  :global {
+    .ImageBasic {
+      margin-top: 30px;
+
+      @include media(pc) {
+        margin-top: 50px;
+      }
+    }
+
+    .TextLink {
+      margin-top: 20px;
+    }
+  }
+}
+
+.ModelCases {
+  color: $base;
+
+  .ModelCases__Title {
+    margin: 20px 0;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.39;
+    text-align: justify;
+  }
+
+  .ModelCases__PickupProjectDescription {
+    margin: 4px 0;
+    font-size: 14px;
+    line-height: 1.57;
+  }
+}
+
+.MD_ModelCasesWrapper {
+  > p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.86;
+    text-align: justify;
+
+    + p {
+      margin-top: 1em;
+    }
+  }
+
+  :global {
+    .CaseStudySummary {
+      margin: 20px 0;
+
+      @include media(pc) {
+        margin: 30px 0;
+      }
+    }
+
+    .ImageBasic {
+      margin: 30px 0 20px;
+
+      @include media(pc) {
+        margin: 50px 0 20px;
+      }
+
+      > p {
+        margin: 0;
+      }
+    }
+
+    .BackgroundGray {
+      margin: 30px 0;
+
+      @include media(pc) {
+        margin: 50px 0;
+      }
+    }
+
+    .Title {
+      margin: 100px 0 30px;
+
+      @include media(pc) {
+        margin: 100px 0 50px;
+      }
+    }
+
+    .isSP {
+      @include media(pc) {
+        display: none;
+      }
+    }
+  }
+}

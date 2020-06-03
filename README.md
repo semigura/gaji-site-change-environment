@@ -1,53 +1,82 @@
-# Gatsby Portfolio Website
+<h1 align="center">
+  Gaji-Labo 2018
+</h1>
 
-This repo contains a static website written with [GatsbyJS](https://www.gatsbyjs.org/), integrated with content coming from [DatoCMS](https://www.datocms.com).
+## 🚀 Quick start
 
-![Preview](preview.png)
+1.  **Clone this repository**
 
-[See the live demo](https://demo-datocms-gatsby.netlify.com/)
+    ```sh
+    git clone git@github.com:Gaji-Labo/gaji-renewal.git
+    ```
 
-If you want to use try this out yourself, you first need to set up a project on DatoCMS which will host your data.
+2.  **Setup**
 
-You can [sign up for a free account](https://dashboard.datocms.com/signup) and then you can simply click this button:
+    ```sh
+    # if you need
+    ndenv install v10.13.0
+    npm install -g yarn
+    # install dependencies
+    yarn
+    ```
 
-[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/projects/new-from-template/static-website/gatsby-portfolio)
+3.  **Start development**
 
-## Repo usage
+    ```sh
+    yarn dev
+    ```
 
-First, install the dependencies of this project:
+    Running at `http://localhost:8000`!
+    
+    *Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
 
-```
-yarn install
-```
+    ```sh
+    yarn storybook
+    ```
 
-Add an `.env` file containing the read-only API token of your DatoCMS site:
+    Running at `http://localhost:6006`
 
-```
-echo 'DATO_API_TOKEN=abc123' >> .env
-```
+4.  **Test**
 
-Then, to run this website in development mode (with live-reload):
+    ```sh
+    yarn test
+    ```
 
-```
-yarn develop
-```
+### 👀 Visual regression test
 
-To build the final, production ready static website:
+1.  **Creating reference files**
 
-```
-yarn build
-```
+    ```sh
+    backstop reference
+    ```
 
-The final result will be saved in the `public` directory.
+2.  **Generating test bitmaps**
 
-## About
+    ```sh
+    backstop test
+    ```
 
-The goal of this project is to show how easily you can create static sites using the content (text, images, links, etc.) stored on [DatoCMS](https://www.datocms.com). This project is configured to fetch data from a specific administrative area using [the API DatoCMS provides](https://www.datocms.com/docs/content-management-api).
+    This will create a new set of bitmaps in `backstop_data/` directory.
 
-You can find further information about how to integrate DatoCMS with Gatsby in [our documentation](https://www.datocms.com/docs/static-generators/gatsbyjs).
+More:
 
-This websites uses:
+Setting the bitmap and script directory paths in `backstop.json` config file.
 
-- [Yarn](https://yarnpkg.com/) as package manager;
-- [GatsbyJS](https://github.com/gatsbyjs/gatsby) as website generator;
-- [gatsby-source-datocms](https://github.com/datocms/gatsby-source-datocms) to integrate the website with DatoCMS.
+refs: https://github.com/garris/BackstopJS
+
+## 🌎 Deployment
+
+Automatic deploy to Netlify when your PR merge to the develop branch.
+
+https://tender-visvesvaraya-f04a66.netlify.com/
+
+And! Deploy all branches pushed to the repository.  
+refs: https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/
+
+## 🎓 Learning Gatsby
+
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+
+-   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+
+-   **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.

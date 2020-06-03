@@ -1,0 +1,27 @@
+@import 'config/theme';
+
+.ProductsSample {
+  color: $base;
+
+  .ProductsSample__Title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.67;
+    text-align: justify;
+  }
+
+  .ProductsSample__Description {
+    margin: 3px 0 0;
+    font-size: 11px;
+    line-height: 1.64;
+    text-align: justify;
+  }
+
+  @include media(tablet) {
+    > p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+}

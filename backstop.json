@@ -1,0 +1,185 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "small",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 640,
+      "height": 960
+    },
+    {
+      "label": "pc",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "index",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/",
+      "referenceUrl": "https://www.gaji.jp/",
+      "delay": 5000
+    },
+    {
+      "label": "404",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/404/",
+      "referenceUrl": "https://www.gaji.jp/404/",
+      "delay": 5000
+    },
+    {
+      "label": "about/access",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/about/access/",
+      "referenceUrl": "https://www.gaji.jp/about/access/",
+      "delay": 5000
+    },
+    {
+      "label": "about",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/about/",
+      "referenceUrl": "https://www.gaji.jp/about/",
+      "delay": 5000
+    },
+    {
+      "label": "case-studies",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/case-studies/",
+      "referenceUrl": "https://www.gaji.jp/case-studies/",
+      "delay": 5000
+    },
+    {
+      "label": "case-studies/model-cases/model-case-001",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/case-studies/model-cases/model-case-001/",
+      "referenceUrl": "https://www.gaji.jp/case-studies/model-cases/model-case-001/",
+      "delay": 5000
+    },
+    {
+      "label": "contact",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/contact/",
+      "referenceUrl": "https://www.gaji.jp/contact/",
+      "delay": 5000
+    },
+    {
+      "label": "contact/success",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/contact/success/",
+      "referenceUrl": "https://www.gaji.jp/contact/success/",
+      "delay": 5000
+    },
+    {
+      "label": "news",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/news/",
+      "referenceUrl": "https://www.gaji.jp/news/",
+      "delay": 5000
+    },
+    {
+      "label": "news/2019-02-25",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/news/2019-02-25/",
+      "referenceUrl": "https://www.gaji.jp/news/2019-02-25/",
+      "delay": 5000
+    },
+    {
+      "label": "privacy",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/privacy/",
+      "referenceUrl": "https://www.gaji.jp/privacy/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/",
+      "referenceUrl": "https://www.gaji.jp/recruit/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit/front-end-engineer",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/front-end-engineer/",
+      "referenceUrl": "https://www.gaji.jp/recruit/front-end-engineer/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit/information-architect",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/information-architect/",
+      "referenceUrl": "https://www.gaji.jp/recruit/information-architect/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit/ui-designer",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/ui-designer/",
+      "referenceUrl": "https://www.gaji.jp/recruit/ui-designer/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit/contact",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/contact/",
+      "referenceUrl": "https://www.gaji.jp/recruit/contact/",
+      "delay": 5000
+    },
+    {
+      "label": "recruit/contact/success",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/recruit/contact/success/",
+      "referenceUrl": "https://www.gaji.jp/recruit/contact/success/",
+      "delay": 5000
+    },
+    {
+      "label": "services",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/services/",
+      "referenceUrl": "https://www.gaji.jp/services/",
+      "delay": 5000
+    },
+    {
+      "label": "sitemap",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:8000/sitemap/",
+      "referenceUrl": "https://www.gaji.jp/sitemap/",
+      "delay": 5000
+    },
+    {
+      "label": "projects",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?selectedKind=pages%2Fprojects&selectedStory=preview",
+      "delay": 5000
+    },
+    {
+      "label": "output",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://localhost:6006/iframe.html?selectedKind=pages%2Foutput&selectedStory=preview",
+      "delay": 5000
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

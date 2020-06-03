@@ -1,0 +1,79 @@
+@import 'config/theme';
+
+.CaseStudySummary {
+  padding: 20px;
+  border: 1px solid $border-gray-L1;
+
+  .CaseStudySummary__Title {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.67;
+    text-align: justify;
+  }
+
+  .CaseStudySummary__DetailList {
+    margin: 0;
+
+    > dt {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 84px;
+      height: 26px;
+      margin-right: 14px;
+      padding: 1px 9px;
+      border-radius: 3px;
+      background-color: $blue-gray;
+      color: $white;
+      line-height: 1.5;
+      text-align: justify;
+      word-break: normal;
+
+      &:not(:first-of-type) {
+        margin-top: 5px;
+      }
+
+      > img {
+        width: 14px;
+        height: 12px;
+        margin-right: 6px;
+      }
+    }
+
+    > dd {
+      margin: 0;
+      line-height: 2;
+      text-align: justify;
+    }
+  }
+
+  > p {
+    margin: 0;
+  }
+
+  @include media(tablet) {
+    .CaseStudySummary__DetailList {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      > dt {
+        margin-top: 3px;
+
+        &:not(:first-of-type) {
+          margin-top: 8px;
+        }
+      }
+
+      > dd {
+        width: calc(100% - 105px);
+
+        &:not(:first-of-type) {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}

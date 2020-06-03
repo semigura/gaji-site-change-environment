@@ -1,0 +1,32 @@
+.RecruitAnchorList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include media(pc) {
+    display: none;
+  }
+
+  .RecruitAnchorList__Item {
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+
+  .RecruitAnchorList__Anchor {
+    position: relative;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 9px);
+      right: -24px;
+      width: 11px;
+      height: 11px;
+      transform: rotate(135deg);
+      border-top: solid 2px $black;
+      border-right: solid 2px $black;
+    }
+  }
+}

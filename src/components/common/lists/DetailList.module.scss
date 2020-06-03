@@ -1,0 +1,49 @@
+@import 'config/theme';
+
+.DetailList {
+  margin: 0;
+  border-bottom: 1px solid $border-gray;
+
+  > dt {
+    padding-top: 14px;
+    color: $gray-D1;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.75;
+
+    @include media(pc) {
+      display: inline-block;
+      width: 150px;
+      padding-right: 10px;
+      padding-bottom: 14px;
+      vertical-align: top;
+    }
+
+    &:not(:first-of-type) {
+      border-top: 1px solid $border-gray;
+    }
+  }
+
+  > dd {
+    margin: 0;
+    padding-bottom: 14px;
+    color: $base;
+    font-size: 16px;
+    line-height: 1.75;
+
+    @include media(pc) {
+      display: inline-block;
+      width: 100%;
+      max-width: calc(100% - 150px);
+      padding-top: 14px;
+
+      &:not(:first-of-type) {
+        border-top: 1px solid $border-gray;
+      }
+    }
+  }
+
+  .DetailList__Text {
+    margin: 0;
+  }
+}

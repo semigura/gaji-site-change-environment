@@ -1,0 +1,36 @@
+@import 'config/theme';
+
+.ToggleText {
+  .ToggleText__Button {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 27px auto 103px;
+    padding: 0;
+    transition: 0.5s;
+    border: 1px solid black;
+    border-radius: 50%;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 5px);
+      left: calc(50% - 5.5px);
+      width: 11px;
+      height: 11px;
+      margin-top: -4px;
+      transform: rotate(135deg);
+      border-top: solid 2px black;
+      border-right: solid 2px black;
+    }
+
+    &.isOpen {
+      margin-top: 82px;
+      transform: rotate(180deg);
+    }
+  }
+}

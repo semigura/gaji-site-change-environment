@@ -1,0 +1,1006 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+
+site_url: gaji.jp
+
+media_folder: static/uploads
+public_folder: /uploads
+
+collections:
+  - name: 'index-clients'
+    label: 'Index - Clients'
+    folder: 'src/pages/index-clients'
+    create: false
+    slug: 'index-clients'
+    fields:
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          default: '主な取引先',
+          hint: 'CMS投稿画面の一覧に表示されるタイトルです。ページの表示には影響しないため編集不要です。',
+        }
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'index-clients',
+        }
+      - label: '主な取引先'
+        name: 'clients'
+        widget: 'list'
+        fields:
+          - { label: '会社名 (必須)', name: 'name', widget: 'string' }
+          - {
+              label: '会社ロゴ',
+              name: 'image',
+              widget: 'image',
+              required: false,
+            }
+  - name: 'index-pickup-contents'
+    label: 'Index - Pickup Contents'
+    folder: 'src/pages/index-pickup-contents'
+    create: false
+    slug: 'index-pickup-contents'
+    fields:
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          default: 'ピックアップコンテンツ',
+          hint: 'CMS投稿画面の一覧に表示されるタイトルです。ページの表示には影響しないため編集不要です。'
+        }
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'index-pickup-contents',
+        }
+      - label: 'ピックアップコンテンツ'
+        name: 'pickupContents'
+        widget: 'list'
+        fields:
+          - {
+              label: 'サムネイル画像 (必須)',
+              name: 'image',
+              widget: 'image',
+              default: ''
+            }
+          - {
+              label: 'サムネイル画像の alt',
+              name: 'imageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: '画像の代替テキストになるテキスト。'
+            }
+          - {
+              label: 'URL (必須)',
+              name: 'url',
+              widget: 'string',
+              default: '',
+              hint: 'e.g.「https://blog.gaji.jp」「/case-studies/model-cases/model-case-001/」'
+            }
+          - {
+              label: '説明文 (必須)',
+              name: 'caption',
+              widget: 'text',
+              default: ''
+            }
+  - name: 'news'
+    label: 'News'
+    folder: 'src/pages/news'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'news',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - label: 'URL (必須)'
+        name: 'slug'
+        widget: 'string'
+        default: ''
+        hint: '/news/hoge/ の hoge に入る URL となる文字列。e.g. 「2019-12-04」'
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'OGP の description となるテキスト。未入力の場合は本文の抜粋が入ります。',
+        }
+      - {
+          label: 'OGP 画像',
+          name: 'ogpThumbnail',
+          widget: 'image',
+          required: false,
+          default: '',
+          hint: 'OGP に使用される画像。ページには表示されません。',
+        }
+      - {
+          label: 'お問い合わせフォームを表示する',
+          name: 'showContactForm',
+          widget: 'boolean',
+          default: false,
+          hint: 'リソース状況更新のお知らせなどにお問い合わせフォームを表示するかを選択します。',
+      }
+      - { label: '本文 (必須)', name: 'body', widget: 'markdown' }
+  - name: 'services-modelcases'
+    label: 'Services - Model Cases'
+    folder: 'src/pages/services'
+    slug: 'services-modelcases'
+    identifier_field: 'title'
+    fields:
+      - {
+        label: 'Title',
+        name: 'title',
+        widget: 'hidden',
+        default: 'こんなお悩みありませんか？',
+      }
+      - {
+        label: 'Template type',
+        name: 'type',
+        widget: 'hidden',
+        default: 'services-modelcases',
+      }
+      - label: 'こんなお悩みありませんか？'
+        name: 'modelCasesLinks'
+        widget: 'list'
+        required: true
+        fields:
+          - {
+              label: 'リンクタイトル (必須)',
+              name: 'modelCasesLinkTitle',
+              widget: 'string',
+              required: true,
+              default: '',
+            }
+          - {
+              label: 'リンクURL (必須)',
+              name: 'modelCasesLinkUrl',
+              widget: 'string',
+              required: true,
+              default: '',
+              hint: 'ルートパスで指定してください。e.g.「/case-studies/model-cases/model-case-001/」',
+            }
+  - name: 'case-studies-results-list'
+    label: 'Case Studies - Index - Results List'
+    folder: 'src/pages/case-studies'
+    create: false
+    slug: 'case-studies-results-list'
+    identifier_field: '{fields.title}'
+    fields:
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'hidden',
+          default: '主な実績リスト',
+          hint: 'CMS投稿画面の一覧に表示されるタイトルです。ページの表示には影響しないため編集不要です。',
+        }
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'case-studies-results-list',
+        }
+      - label: '主な実績リスト'
+        name: 'results'
+        widget: 'list'
+        fields:
+          - { label: 'タイトル (必須)', name: 'title', widget: 'markdown' }
+          - {
+              label: '説明 (必須)',
+              name: 'description',
+              widget: 'markdown',
+            }
+  - name: 'projects'
+    label: 'Case Studies - Projects'
+    folder: 'src/pages/case-studies/projects'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'projects',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - label: 'URL (必須)'
+        name: 'slug'
+        widget: 'string'
+        default: 'project-'
+        hint: '/projects/hoge/ の hoge に入る URL となる文字列。e.g. 「project-001」「project-020」'
+      - {
+          label: 'Case ID (必須)',
+          name: 'caseId',
+          widget: 'number',
+          hint: 'コンテンツトップの「事例 #000」ラベルに入る数値（頭に0を含めない整数を入力）。e.g. 「1」',
+        }
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - { label: 'クライアント名 (必須)', name: 'clientName', widget: 'string' }
+      - {
+          label: 'クライアントのURL',
+          name: 'clientUrl',
+          widget: 'string',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          default: '',
+          hint: '一覧の説明文と OGP の description となるテキスト。未入力の場合は最初の本文セクションの抜粋が入ります。',
+        }
+      - {
+          label: 'サムネイル画像',
+          name: 'thumbnail',
+          widget: 'image',
+          hint: 'OGP の thumbnail、トップページの thumbnail、事例紹介TOPの thumbnail に表示される画像。推奨サイズは横1200x縦800',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'サムネイル画像 - alt',
+          name: 'thumbnailAlt',
+          widget: 'text',
+          hint: '画像の代替テキストになるテキスト。',
+          required: false,
+          default: ''
+        }
+      - {
+          label: 'タグ (複数可)',
+          name: 'tags',
+          widget: 'list',
+          required: false,
+          field:
+            {
+              label: 'タグ',
+              name: 'tag',
+              widget: 'string',
+              required: false,
+              default: '',
+            },
+        }
+      - {
+          label: 'アイキャッチ画像',
+          name: 'eyecatch',
+          widget: 'image',
+          hint: 'コンテンツの本文トップに表示される画像。推奨幅は横1600px',
+          required: false,
+          default: ''
+        }
+      - {
+          label: 'アイキャッチ画像 - alt',
+          name: 'eyecatchAlt',
+          widget: 'text',
+          hint: '画像の代替テキストになるテキスト。',
+          required: false,
+          default: ''
+        }
+      - label: '本文 (必須/複数可)'
+        name: 'bodyBeforeSteps'
+        widget: 'list'
+        hint: 'コンテンツ本文。1つのサマリーブロックを含むセクションを1単位として、複数追加が可能です。'
+        fields:
+          - {
+              label: 'セクションの見出し',
+              name: 'sectionTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'サマリーブロックのタイトル',
+              name: 'summaryTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'e.g. 「プロジェクトの概要」',
+            }
+          - {
+              label: 'サマリーブロックのテキスト',
+              name: 'summaryText',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'e.g. 「システム構築の指針を定め、最適なワークフローを提案。」',
+            }
+          - {
+              label: '本文 (必須)',
+              name: 'sectionText',
+              widget: 'markdown',
+              hint: 'Markdown モードで記述時に、本文中に # を記述することで見出しレベルを指定することが可能です。e.g.「# 小さな課題の背景に隠れていた大きな課題」'
+          }
+      - label: 'Step (必須/複数可)'
+        name: 'steps'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Stepのタイトル (必須)',
+              name: 'stepTitle',
+              widget: 'string',
+              default: '',
+              hint: 'e.g. 「基礎情報のインプット」',
+            }
+          - {
+              label: 'Stepのラベル (必須)',
+              name: 'stepLabel',
+              widget: 'string',
+              default: '',
+              hint: 'e.g. 「explore」',
+            }
+          - {
+              label: 'Stepの本文見出し',
+              name: 'stepBodyTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'e.g. 「ヒアリングの出発点となる情報を、頭に叩き込む。」',
+            }
+          - { label: 'Stepの本文 (必須)', name: 'stepBody', widget: 'markdown' }
+          - {
+              label: 'Stepのイメージ画像',
+              name: 'stepFigureImage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'Stepのイメージ画像 - キャプションテキスト',
+              name: 'stepFigureImageCaption',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: '画像のキャプションとしてページに表示されるテキスト。e.g. 「ワークフローの下描き」',
+            }
+          - {
+              label: 'Stepのイメージ画像 - alt',
+              name: 'stepFigureImageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'キャプションテキストが無い場合に、画像の代替テキストになるテキスト。キャプションテキストが無い場合のみに、必ず入力してください。',
+            }
+      - label: '本文 (複数可)'
+        name: 'bodyAfterSteps'
+        widget: 'list'
+        required: false
+        hint: 'Stepセクションの後に配置されるコンテンツ本文。1つのサマリーブロックを含むセクションを1単位として、複数追加が可能です。'
+        fields:
+          - {
+              label: 'セクションの見出し',
+              name: 'sectionTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'サマリーブロックのタイトル',
+              name: 'summaryTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'e.g. 「プロジェクトの概要」',
+            }
+          - {
+              label: 'サマリーブロックのテキスト',
+              name: 'summaryText',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'e.g. 「システム構築の指針を定め、最適なワークフローを提案。」',
+            }
+          - {
+              label: '本文',
+              name: 'sectionText',
+              widget: 'markdown',
+              required: false,
+              default: '',
+              hint: 'Markdown モードで記述時に、本文中に # を記述することで見出しレベルを指定することが可能です。e.g.「# 小さな課題の背景に隠れていた大きな課題」'
+          }
+      - {
+          label: 'お問い合わせリンクのテキスト - 1行目',
+          name: 'contactTextFirstLine',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'お問い合わせリンクのテキスト - 2行目',
+          name: 'contactTextSecondLine',
+          widget: 'text',
+          default: 'Gaji-Laboはあなたと一緒に考え、実行します。',
+        }
+      - label: '関連リンク'
+        name: 'relativeLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連リンク - タイトル',
+              name: 'relativeLinkTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '関連リンク - URL',
+              name: 'relativeLinkUrl',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ルートパスで指定してください。e.g.「/case-studies/model-cases/001/」',
+            }
+  - name: 'model-cases'
+    label: 'Case Studies - Model Cases'
+    folder: 'src/pages/case-studies/model-cases'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'model-cases',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - {
+          label: 'URL (必須)',
+          name: 'slug',
+          widget: 'string',
+          default: 'model-case-',
+          hint: '/model-cases/hoge/ の hoge に入る URL となる文字列。e.g. 「model-case-001」「model-case-020」',
+        }
+      - {
+          label: 'Case ID (必須)',
+          name: 'caseId',
+          widget: 'number',
+          hint: 'コンテンツトップの「モデルケース #000」ラベルに入る数値（頭に0を含めない整数を入力）。e.g. 「1」',
+        }
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'OGP の description となるテキスト。未入力の場合は導入文の抜粋が入ります。',
+        }
+      - {
+          label: 'OGP 画像',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+          hint: 'OGP に使用される画像。ページには表示されません。',
+        }
+      - { label: '導入文 (必須)', name: 'introduction', widget: 'text' }
+      - {
+          label: 'Actionのテキスト (必須)',
+          name: 'summaryActionText',
+          widget: 'text',
+          default: '',
+        }
+      - {
+          label: 'Resultのテキスト (必須)',
+          name: 'summaryResultText',
+          widget: 'text',
+          default: '',
+        }
+      - {
+          label: 'イメージ画像',
+          name: 'modelCasesImage',
+          widget: 'image',
+          required: false,
+          default: '',
+        }
+      - {
+          label: 'イメージ画像 - alt',
+          name: 'modelCasesImageAlt',
+          widget: 'text',
+          required: false,
+          default: '',
+          hint: '画像の代替テキストになるテキスト。'
+        }
+      - {
+          label: 'イメージ画像 - テキスト',
+          name: 'modelCasesImageText',
+          widget: 'text',
+          required: false,
+        }
+      - label: 'アウトプットサンプル'
+        name: 'samples'
+        widget: 'list'
+        fields:
+          - {
+              label: 'アウトプットサンプル - 画像',
+              name: 'sampleImage',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'アウトプットサンプル - キャプションテキスト',
+              name: 'sampleImageCaption',
+              widget: 'text',
+              required: false,
+              hint: '画像のキャプションとしてページに表示されるテキスト。',
+            }
+          - {
+              label: 'アウトプットサンプル - alt',
+              name: 'sampleImageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'キャプションテキストが無い場合に、画像の代替テキストになるテキスト。キャプションテキストが無い場合のみに、必ず入力してください。',
+            }
+      - label: '同じソリューションで貢献したプロジェクト'
+        name: 'pickupProject'
+        widget: 'object'
+        required: false
+        fields:
+          - {
+              label: '同じソリューションで貢献したプロジェクト - 画像',
+              name: 'projectImage',
+              widget: 'image',
+              required: false,
+              default: ''
+          }
+          - {
+              label: '同じソリューションで貢献したプロジェクト - 画像のalt',
+              name: 'projectImageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: '画像の代替テキストになるテキスト。'
+          }
+          - {
+              label: '同じソリューションで貢献したプロジェクト - URL',
+              name: 'projectUrl',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ルートパスで指定してください。e.g.「/case-studies/projects/project-001/」'
+          }
+          - {
+              label: '同じソリューションで貢献したプロジェクト - 説明文',
+              name: 'projectDescription',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'プロジェクトタイトルと解説を兼ねて表示するテキスト。このフィールドが空だと同じソリューションで貢献したプロジェクトが非表示になります。'
+          }
+      - label: '関連するメソッド'
+        name: 'relativeLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連するメソッド - タイトル',
+              name: 'relativeLinkTitle',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '関連するメソッド - URL',
+              name: 'relativeLinkUrl',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ルートパスで指定してください。e.g.「/case-studies/model-cases/model-case-001/」'
+            }
+      - {
+          label: 'お問い合わせリンクのテキスト - 1行目',
+          name: 'contactTextFirstLine',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'お問い合わせリンクのテキスト - 2行目',
+          name: 'contactTextSecondLine',
+          widget: 'text',
+          default: 'Gaji-Laboは、あなたのチームに必要なソリューションをあなたと一緒に考えます。',
+        }
+  - name: 'output'
+    label: 'Case Studies - Output'
+    folder: 'src/pages/case-studies/output'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'output',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - {
+          label: 'URL (必須)',
+          name: 'slug',
+          widget: 'string',
+          default: 'output-',
+          hint: '/output/hoge/ の hoge に入るURLとなる文字列。e.g. 「output-001」「output-020」',
+        }
+      - {
+          label: 'Case ID (必須)',
+          name: 'caseId',
+          widget: 'number',
+          hint: 'コンテンツトップの「アウトプットサンプル #000」ラベルに入る数値（頭に0を含めない整数を入力）。e.g. 「1」',
+        }
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'OGP の description となるテキスト。未入力の場合は導入文の抜粋が入ります。',
+        }
+      - {
+          label: 'OGP 画像',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+          hint: 'OGP に使用される画像。ページには表示されません。',
+        }
+      - { label: '導入文 (必須)', name: 'introduction', widget: 'text' }
+      - {
+          label: 'アイキャッチ画像 (必須)',
+          name: 'eyecatch',
+          widget: 'image',
+          hint: 'コンテンツの本文トップに表示される画像。推奨幅は横1600px',
+        }
+      - {
+          label: 'アイキャッチ画像 - キャプションテキスト',
+          name: 'eyecatchCaption',
+          widget: 'text',
+          hint: '画像のキャプションとしてページに表示されるテキスト。',
+          required: false,
+          default: ''
+        }
+      - {
+          label: 'アイキャッチ画像 - alt',
+          name: 'eyecatchAlt',
+          widget: 'text',
+          hint: 'キャプションテキストが無い場合に、画像の代替テキストになるテキスト。キャプションテキストが無い場合のみに、必ず入力してください。',
+          required: false,
+          default: ''
+        }
+      - label: '本文 (必須/複数可)'
+        name: 'bodySection'
+        widget: 'list'
+        hint: 'コンテンツ本文。見出し・画像・テキストを持つ1セクションを1単位として、複数追加が可能です。'
+        fields:
+          - {
+              label: '見出し',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '画像',
+              name: 'image',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '画像 - キャプションテキスト',
+              name: 'imageCaption',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: '画像のキャプションとしてページに表示されるテキスト。',
+          }
+          - {
+              label: '画像 - alt',
+              name: 'imageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'キャプションテキストが無い場合に、画像の代替テキストになるテキスト。キャプションテキストが無い場合のみに、必ず入力してください。',
+            }
+          - {
+              label: '本文',
+              name: 'text',
+              widget: 'markdown',
+              required: false,
+              default: '',
+              hint: 'Markdown モードで記述時に、本文中に # を記述することで見出しレベルを指定することが可能です。e.g.「# 小さな課題の背景に隠れていた大きな課題」'
+          }
+      - label: '関連するプロジェクト'
+        name: 'relativeProjectLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連するプロジェクト - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+          }
+          - {
+              label: '関連するプロジェクト - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/projects/project-001/」を指定したい場合、「project-001」'
+            }
+      - label: '関連するモデルケース'
+        name: 'relativeModelCaseLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連するモデルケース - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '関連するモデルケース - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/model-cases/model-case-001/」を指定したい場合、「model-case-001」'
+            }
+      - label: 'ほかのアウトプットサンプルも見る'
+        name: 'relativeOutputLinks'
+        widget: 'list'
+        required: false
+        hint: '4 件以上は表示されません。'
+        fields:
+          - {
+              label: 'ほかのアウトプットサンプル - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'ほかのアウトプットサンプル - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/output/output-001/」を指定したい場合、「output-001」'
+            }
+      - {
+          label: 'お問い合わせリンクのテキスト - 1行目',
+          name: 'contactTextFirstLine',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'お問い合わせリンクのテキスト - 2行目',
+          name: 'contactTextSecondLine',
+          widget: 'text',
+          default: 'Gaji-Laboは、あなたのチームに必要なソリューションをあなたと一緒に考えます。',
+        }
+  - name: 'methods'
+    label: 'Case Studies - Methods'
+    folder: 'src/pages/case-studies/methods'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'methods',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - label: 'URL (必須)'
+        name: 'slug'
+        widget: 'string'
+        default: 'method-'
+        hint: '/methods/hoge/ の hoge に入るURLとなる文字列。e.g. 「method-001」「method-020」'
+      - {
+          label: 'Case ID (必須)',
+          name: 'caseId',
+          widget: 'number',
+          hint: 'コンテンツトップの「メソッド #000」ラベルに入る数値（頭に0を含めない整数を入力）。e.g. 「1」',
+        }
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'OGP の description となるテキスト。未入力の場合は導入文の抜粋が入ります。',
+        }
+      - {
+          label: 'OGP 画像',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+          hint: 'OGP に使用される画像。ページには表示されません。',
+        }
+      - { label: '導入文 (必須)', name: 'introduction', widget: 'text' }
+      - {
+          label: 'アイキャッチ画像',
+          name: 'eyecatch',
+          widget: 'image',
+          required: false,
+          default: '',
+          hint: 'コンテンツの本文トップに表示される画像。推奨幅は横1600px',
+        }
+      - {
+          label: 'アイキャッチ画像 - キャプションテキスト',
+          name: 'eyecatchCaption',
+          widget: 'text',
+          hint: '画像のキャプションとしてページに表示されるテキスト。',
+          required: false,
+          default: ''
+        }
+      - {
+          label: 'アイキャッチ画像 - alt',
+          name: 'eyecatchAlt',
+          widget: 'text',
+          hint: 'キャプションテキストが無い場合に、画像の代替テキストになるテキスト。キャプションテキストが無い場合のみに、必ず入力してください。',
+          required: false,
+          default: ''
+        }
+      - label: '本文 (必須/複数可)'
+        name: 'bodySection'
+        widget: 'list'
+        hint: 'コンテンツ本文。見出し・画像・テキストを持つ1セクションを1単位として、複数追加が可能です。'
+        fields:
+          - {
+              label: '見出し',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '画像',
+              name: 'image',
+              widget: 'image',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '画像 - alt',
+              name: 'imageAlt',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'figcaption が無い場合に、画像の alt 属性に入るテキスト。alt かキャプションテキストのどちらかを必ず入力してください。',
+            }
+          - {
+              label: '画像 - キャプションテキスト',
+              name: 'imageCaption',
+              widget: 'text',
+              required: false,
+              default: '',
+              hint: 'figcaption に入るテキスト。alt かキャプションテキストのどちらかを必ず入力してください。',
+          }
+          - {
+              label: '本文',
+              name: 'text',
+              widget: 'markdown',
+              required: false,
+              default: '',
+              hint: 'Markdown モードで記述時に、本文中に # を記述することで見出しレベルを指定することが可能です。e.g.「# 小さな課題の背景に隠れていた大きな課題」'
+          }
+      - label: '関連するプロジェクト'
+        name: 'relativeProjectLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連するプロジェクト - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '関連するプロジェクト - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/projects/project-001/」を指定したい場合、「project-001」'
+            }
+      - label: '関連するモデルケース'
+        name: 'relativeModelCaseLinks'
+        widget: 'list'
+        required: false
+        fields:
+          - {
+              label: '関連するモデルケース - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: '関連するモデルケース - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/model-cases/model-case-001/」を指定したい場合、「model-case-001」'
+            }
+      - label: 'ほかのメソッドも見る'
+        name: 'relativeMethodLinks'
+        widget: 'list'
+        required: false
+        hint: '4 件以上は表示されません。'
+        fields:
+          - {
+              label: 'ほかのメソッド - タイトル',
+              name: 'title',
+              widget: 'string',
+              required: false,
+              default: '',
+            }
+          - {
+              label: 'ほかのメソッド - URL',
+              name: 'url',
+              widget: 'string',
+              required: false,
+              default: '',
+              hint: 'ページの URL で指定してください。e.g.「/case-studies/methods/method-001/」を指定したい場合、「method-001」'
+            }
+      - {
+          label: 'お問い合わせリンクのテキスト - 1行目',
+          name: 'contactTextFirstLine',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'お問い合わせリンクのテキスト - 2行目',
+          name: 'contactTextSecondLine',
+          widget: 'text',
+          default: 'Gaji-Laboは、あなたのチームに必要なソリューションをあなたと一緒に考えます。',
+        }
+  - name: 'glossary'
+    label: 'Glossary'
+    folder: 'src/pages/glossary'
+    create: true
+    slug: '{{fields.slug}}'
+    fields:
+      - {
+          label: 'Template type',
+          name: 'type',
+          widget: 'hidden',
+          default: 'glossary',
+        }
+      - { label: '投稿日時 (必須)', name: 'date', widget: 'datetime' }
+      - label: 'URL (必須)'
+        name: 'slug'
+        widget: 'string'
+        default: 'word-'
+        hint: '/glossary/hoge/ の hoge に入る URL となる文字列。e.g. 「word-001」'
+      - { label: 'タイトル (必須)', name: 'title', widget: 'string' }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'text',
+          required: false,
+          hint: 'OGP の description となるテキスト。未入力の場合は本文の抜粋が入ります。',
+        }
+      - {
+          label: 'OGP 画像',
+          name: 'ogpThumbnail',
+          widget: 'image',
+          required: false,
+          default: '',
+          hint: 'OGP に使用される画像。ページには表示されません。',
+        }
+      - { label: '本文 (必須)', name: 'body', widget: 'markdown' }

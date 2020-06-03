@@ -1,0 +1,432 @@
+@import 'config/theme';
+
+.IndexWrapper {
+  :global {
+    .ContactLink {
+      margin: 50px 0 100px;
+
+      @include media(pc) {
+        margin-top: 95px;
+      }
+    }
+
+    .BackgroundGray {
+      margin-top: 50px;
+      padding: 50px 20px;
+      background-image: url('../static/images/kv-pc.png');
+      background-repeat: no-repeat;
+      background-position: 35% -35px;
+      background-size: cover;
+      text-align: center;
+
+      @include media(pc) {
+        margin-top: 100px;
+        padding: 100px 20px;
+        background-position: 10px -100px;
+      }
+
+      .BackgroundGray__Container {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.Index {
+  .Index__KeyVisual {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    padding: 70px 20px 100px;
+    transform: translateX(-50%);
+    background-image: url('../static/images/kv-pc.png');
+    background-repeat: no-repeat;
+    background-position: 35% -32px;
+    background-size: cover;
+    text-align: center;
+
+    @include media(pc) {
+      padding: 100px 20px 160px;
+      background-position: 10px center;
+    }
+  }
+
+  .Index__KeyVisualText {
+    margin: 0;
+    color: $base;
+    font-family: $serif;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1.4;
+
+    @include media(small) {
+      font-size: 42px;
+    }
+
+    @include media(pc) {
+      font-size: 90px;
+      letter-spacing: -3px;
+      line-height: 1.3;
+    }
+  }
+
+  .Index__Catch {
+    margin-top: 60px;
+    margin-bottom: 0;
+    color: $base;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+
+    @include media(pc) {
+      margin-top: 120px;
+      font-size: 22px;
+      line-height: 1.73;
+    }
+
+    &.isSmall {
+      font-size: 18px;
+      line-height: 1.67;
+    }
+  }
+
+  .Index__Contents {
+    position: relative;
+    margin-top: -30px;
+
+    @include media(pc) {
+      margin-top: -130px;
+    }
+  }
+
+  .Index__LeadText {
+    max-width: 800px;
+    margin: 0 auto;
+    color: $base;
+    font-size: 18px;
+    line-height: 2;
+  }
+
+  .Index__ServicesImage {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto;
+
+    @include media(pc) {
+      margin: 100px auto 20px;
+    }
+  }
+
+  .Index__ButtonContaier {
+    margin: 30px auto 0;
+    text-align: center;
+
+    @include media(pc) {
+      margin-top: 45px;
+    }
+  }
+
+  .Index__News {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .Index__NewsList {
+    margin: 25px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .Index__NewsListItem {
+    color: $gray-D1;
+    font-size: 14px;
+    font-weight: 600;
+
+    @include media(pc) {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    & + .Index__NewsListItem {
+      margin-top: 20px;
+    }
+
+    &::before {
+      content: '-';
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  .Index__NewsListLink {
+    > a {
+      margin-left: 10px;
+      font-size: 16px;
+      font-weight: normal;
+
+      @include media(pc) {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .Index__ShowMoreNewsLink {
+    margin-top: 20px;
+
+    @include media(pc) {
+      margin-top: 30px;
+    }
+  }
+
+  .Index__Message {
+    margin: 20px 0;
+    color: $base;
+    font-family: $serif;
+    font-size: 42px;
+    letter-spacing: -4px;
+    line-height: 1.3;
+
+    @include media(pc) {
+      margin: 40px 0 26px;
+      font-size: 46px;
+      letter-spacing: -2px;
+    }
+  }
+
+  .Index__AboutButton {
+    margin-top: 40px;
+  }
+
+  .Index__Projects {
+    margin-top: 100px;
+  }
+
+  .Index__ProjectsList {
+    margin: 30px 0 0;
+    padding: 0;
+
+    @include media(tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 30px -20px 0;
+
+      &::after {
+        content: '';
+        display: block;
+        width: calc(50% - 40px);
+      }
+    }
+  }
+
+  .Index__ProjectsListItem {
+    display: block;
+    min-height: 250px;
+    margin: 20px auto 0;
+    border: 1px solid $border-gray-L1;
+
+    @include media(tablet) {
+      width: calc(50% - 40px);
+      margin: 20px;
+    }
+  }
+
+  .Index__ProjectsListTitle {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 0 0;
+    padding-left: 11px;
+    border-left: 4px solid $border-gray-L1;
+    font-weight: 600;
+    text-decoration: underline;
+
+    @include media(tablet) {
+      margin: 0;
+      padding-left: 13px;
+    }
+  }
+
+  .Index__ProjectsListLink {
+    display: block;
+    height: 100%;
+    padding: 20px;
+    text-decoration: none;
+
+    &:hover {
+      .Index__ProjectsListTitle {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .Index__ProjectsListHead {
+    @include media(tablet) {
+      display: flex;
+    }
+  }
+
+  .Index__ProjectsListThumbnail {
+    display: block;
+    width: 140px;
+
+    @include media(tablet) {
+      object-fit: cover;
+      height: 70px;
+      margin-right: 20px;
+    }
+  }
+
+  .Index__ProjectsListDescription {
+    margin: 0;
+    padding-top: 20px;
+    font-size: 14px;
+    line-height: 1.86;
+  }
+
+  .Index__Clients {
+    margin-top: 100px;
+  }
+
+  .Index__ClientsList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+
+    @include media(pc) {
+      align-items: center;
+      justify-content: flex-start;
+      margin: 30px 0 0;
+    }
+  }
+
+  .Index__ClientsListItem {
+    display: block;
+    width: 47.76%;
+    margin: 10px 0;
+    color: $base;
+    font-size: 16px;
+
+    @include media(pc) {
+      align-items: center;
+      width: calc(25% - 40px);
+      margin: 20px 20px;
+    }
+  }
+
+  .Index__ClientsImage {
+    display: block;
+    max-height: 50px;
+    margin: 0 auto;
+
+    @include media(pc) {
+      max-height: 70px;
+    }
+  }
+
+  .Index__ClientsNote {
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .Index__ResourceSchedule {
+    margin-top: 100px;
+  }
+
+  .Index__ResourceScheduleText {
+    margin: 30px 0;
+    font-size: 16px;
+    line-height: 1.75;
+
+    @include media(tablet) {
+      margin: 50px 0;
+      text-align: center;
+    }
+  }
+
+  .Index__PickUpContents {
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+    @include media(pc) {
+      margin-bottom: 75px;
+    }
+  }
+
+  .Index__PickUpContentsInner {
+    margin-top: 30px;
+
+    @include media(pc) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 840px;
+      margin: 30px auto 0;
+    }
+  }
+
+  .Index__PickUpContentsLink {
+    display: block;
+    max-width: 335px;
+    margin: 0 auto;
+
+    @include media(pc) {
+      max-width: 380px;
+    }
+
+    & + .Index__PickUpContentsLink {
+      margin-top: 35px;
+
+      @include media(pc) {
+        margin-top: 20px;
+      }
+    }
+
+    @include media(pc) {
+      width: 380px;
+      margin: 20px;
+
+      &:only-child {
+        margin: 20px auto;
+      }
+    }
+  }
+
+  .Index__PickUpContentsImage {
+    display: block;
+    width: 335px;
+    height: 224px;
+    margin: 0 auto;
+    object-fit: cover;
+
+    @include media(pc) {
+      width: 380px;
+      height: 253px;
+    }
+  }
+
+  .Index__PickUpContentsCaption {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.857142857;
+  }
+
+  .isSP {
+    @include media(pc) {
+      display: none;
+    }
+  }
+
+  .isPC {
+    display: none;
+
+    @include media(pc) {
+      display: block;
+    }
+  }
+}

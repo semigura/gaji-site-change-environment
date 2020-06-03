@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders correctly 1`] = `
+<footer
+  className="Footer"
+>
+  <div
+    className="Footer__Links"
+  >
+    <div
+      className="Footer__LinksInner"
+    >
+      <mockConstructor
+        className="Footer__Logo"
+        to="/"
+      >
+        <Icon
+          className="Footer__Icon"
+          name="logo"
+        />
+      </mockConstructor>
+      <ul
+        className="Footer__List"
+      >
+        <li
+          className="Footer__ListItem"
+          key="facebook"
+        >
+          <a
+            className="Footer__SNS"
+            href="https://www.facebook.com/gajilabo/"
+            rel="nofollow noreferrer"
+            title="Facebook"
+          >
+            <Icon
+              name="facebook"
+            />
+          </a>
+        </li>
+        <li
+          className="Footer__ListItem"
+          key="twitter"
+        >
+          <a
+            className="Footer__SNS"
+            href="https://twitter.com/gaji_labo"
+            rel="nofollow noreferrer"
+            title="Twitter"
+          >
+            <Icon
+              name="twitter"
+            />
+          </a>
+        </li>
+        <li
+          className="Footer__ListItem"
+          key="instagram"
+        >
+          <a
+            className="Footer__SNS"
+            href="https://www.instagram.com/gaji_labo/"
+            rel="nofollow noreferrer"
+            title="Instagram"
+          >
+            <Icon
+              name="instagram"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="Footer__Footer"
+  >
+    <ul
+      className="Footer__MenuList"
+    >
+      <li>
+        <mockConstructor
+          className="Footer__Link"
+          to="/about/access/"
+        >
+          アクセス
+        </mockConstructor>
+      </li>
+      <li>
+        <mockConstructor
+          className="Footer__Link"
+          to="/privacy/"
+        >
+          プライバシーポリシー
+        </mockConstructor>
+      </li>
+      <li>
+        <mockConstructor
+          className="Footer__Link"
+          to="/recruit/"
+        >
+          採用情報
+        </mockConstructor>
+      </li>
+      <li>
+        <mockConstructor
+          className="Footer__Link"
+          to="/sitemap/"
+        >
+          サイトマップ
+        </mockConstructor>
+      </li>
+    </ul>
+    <span
+      className="Footer__Copyright"
+    >
+      ©️ Gaji-Labo Inc. 2016
+    </span>
+  </div>
+</footer>
+`;

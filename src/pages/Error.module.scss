@@ -1,0 +1,17 @@
+@import 'config/theme';
+
+.ErrorWrapper {
+  :global {
+    .SecondTitle {
+      margin: 0 0 50px;
+    }
+
+    .ThirdTitle {
+      margin: 0 0 30px;
+    }
+
+    .TextBasic {
+      margin-bottom: 40px;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import 'config/theme';
+
+.ContactLink {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background-color: $base;
+
+  .ContactLink__Container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 35px 30px 50px;
+  }
+
+  .ContactLink__Button {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .ContactLink__Texts {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: $white;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .ContactLink__PdfLink {
+    display: block;
+    margin-top: 22px;
+    color: $white;
+    font-size: 14px;
+    line-height: 1.86;
+    text-align: center;
+
+    @include media(pc) {
+      margin-top: 30px;
+    }
+
+    .ContactLink__PdfIcon {
+      margin-right: 5px;
+    }
+  }
+
+  @include media(tablet) {
+    .ContactLink__Container {
+      padding: 85px 0 100px;
+    }
+
+    .ContactLink__Texts {
+      margin-top: 30px;
+      margin-bottom: 45px;
+      text-align: center;
+    }
+  }
+}

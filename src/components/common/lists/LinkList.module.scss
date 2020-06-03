@@ -1,0 +1,59 @@
+@import 'config/theme';
+
+.LinkList {
+  > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    > li {
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: $background-gray;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      > a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 14.5px 15px;
+        color: $base;
+        font-size: 14px;
+        line-height: 1.57;
+        text-align: justify;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @include media(tablet) {
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: -10px -20px;
+
+      &::after {
+        content: '';
+        display: block;
+        width: calc(33.33% - 40px);
+        margin: 0 20px;
+      }
+
+      > li {
+        width: calc(33.33% - 40px);
+        margin: 10px 20px;
+
+        &:last-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

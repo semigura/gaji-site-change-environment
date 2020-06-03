@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders correctly 1`] = `
+<button
+  className="Button"
+  type="button"
+>
+  button label
+  <Icon
+    aria-hidden="true"
+    className="Button__Icon"
+    name="arrow-right"
+  />
+</button>
+`;

@@ -1,0 +1,367 @@
+@import 'config/theme';
+
+.ProjectsWrapper {
+  :global {
+    .CaseStudyId {
+      margin-top: 0;
+
+      @include media(pc) {
+        margin-top: 70px;
+      }
+    }
+
+    .ImageBasic {
+      margin-top: 20px;
+
+      @include media(pc) {
+        margin-top: 40px;
+      }
+    }
+
+    .CaseStudySummary {
+      margin-top: 26px;
+      padding: 15px 20px;
+
+      .CaseStudySummary__Title {
+        margin: 0 0 8px;
+        font-size: 16px;
+
+        @include media(pc) {
+          margin: 0 0 4px;
+        }
+      }
+
+      /* stylelint-disable-next-line no-descending-specificity */
+      > p {
+        @include media(pc) {
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .BackgroundGray {
+      margin-top: 50px;
+
+      @include media(pc) {
+        margin-top: 100px;
+      }
+    }
+
+    .Steps {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      counter-reset: number;
+    }
+
+    .StepText {
+      position: relative;
+
+      .StepText__Head {
+        display: flex;
+        align-items: flex-start;
+
+        .StepText__Title {
+          flex-grow: 1;
+          align-items: center;
+          margin: 0 10px 0 0;
+          padding: 10px 20px;
+          border-bottom: none;
+          border-radius: 5px;
+          background-color: $white;
+          font-size: 18px;
+          line-height: 1.67;
+          counter-increment: number;
+
+          @include media(pc) {
+            display: flex;
+            margin-right: 50px;
+          }
+
+          &::before {
+            content: 'Step' counter(number);
+            display: block;
+            color: $gray-D1;
+            font-family: $florencesans;
+            font-size: 22px;
+            font-weight: normal;
+            line-height: 1.45;
+
+            @include media(pc) {
+              flex-basis: 70px;
+              flex-shrink: 0;
+              margin-right: 10px;
+              line-height: 1;
+            }
+          }
+        }
+
+        .StepText__Label {
+          position: relative;
+          z-index: 1;
+          box-sizing: border-box;
+          flex-basis: 60px;
+          flex-shrink: 0;
+          padding: 7.75px 5px;
+          border-radius: 5px;
+          background-color: $blue-gray;
+          color: $white;
+          font-size: 13px;
+          text-align: center;
+          word-break: break-all;
+
+          @include media(pc) {
+            flex-basis: 80px;
+            padding: 9.5px 5px;
+            font-size: 18px;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -11.5px;
+            left: 0;
+            width: 60px;
+            height: 11.5px;
+            background-color: $background-gray;
+
+            @include media(pc) {
+              bottom: -9px;
+              width: 80px;
+              height: 9px;
+            }
+          }
+        }
+      }
+
+      .StepText__Body {
+        margin-top: 15px;
+        margin-right: 70px;
+
+        @include media(pc) {
+          margin-top: 25px;
+          margin-right: 130px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 30px;
+          height: calc(100% - 5px);
+          border-right: 2px dotted $blue-gray;
+
+          @include media(pc) {
+            right: 40px;
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          right: 25px;
+          bottom: 5px;
+          width: 10px;
+          height: 10px;
+          transform: rotate(135deg);
+          border-top: solid 2px $blue-gray;
+          border-right: solid 2px $blue-gray;
+
+          @include media(pc) {
+            right: 35px;
+          }
+        }
+
+        .StepText__BodyTitle {
+          margin: 0 0 -4px;
+          padding-left: 0;
+          border-left: none;
+          font-size: 16px;
+          font-weight: normal;
+          line-height: 1.75;
+        }
+
+        > p {
+          font-size: 14px;
+          line-height: 1.86;
+        }
+
+        > figure {
+          margin: 14px 0 0;
+
+          @include media(pc) {
+            margin-top: 26px;
+          }
+
+          > figcaption {
+            margin-top: 8px;
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+
+    .StepText + .StepText {
+      margin-top: 27px;
+
+      @include media(pc) {
+        margin-top: 48px;
+      }
+    }
+
+    .ContactLink {
+      .ContactLink__Container {
+        padding: 24px 20px 30px;
+
+        @include media(pc) {
+          padding: 64px 0 96px;
+        }
+      }
+
+      .ContactLink__Texts {
+        font-size: 16px;
+        line-height: 1.75;
+
+        @include media(pc) {
+          margin-bottom: 42px;
+          font-size: 18px;
+          line-height: 2;
+          text-align: center;
+        }
+      }
+    }
+
+    .LinkListTitle {
+      margin: 100px 0 28px;
+
+      @include media(pc) {
+        margin-bottom: 50px;
+      }
+    }
+
+    .LinkList {
+      padding-bottom: 80px;
+
+      @include media(pc) {
+        padding-bottom: 110px;
+      }
+    }
+  }
+}
+
+.Projects {
+  margin-top: -2px;
+  color: $base;
+  text-align: justify;
+
+  @include media(pc) {
+    margin-top: 0;
+  }
+
+  .Projects__Title {
+    margin: 16px 0 0;
+    font-size: 23px;
+    line-height: 1.39;
+
+    @include media(pc) {
+      margin-top: 20px;
+    }
+  }
+
+  .Projects__ClientName {
+    display: block;
+    margin: 10px 0 0;
+    color: $base;
+    font-size: 14px;
+    line-height: 1.57;
+  }
+
+  .Projects__Label {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.5px 12px;
+    border: 1px solid $border-gray-L1;
+    border-radius: 12px;
+    color: $base;
+    font-size: 14px;
+    line-height: 1.57;
+    text-decoration: none;
+  }
+
+  .Projects__LabelList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    @include media(pc) {
+      margin: 32px 0 0;
+    }
+  }
+
+  .Projects__Section {
+    margin-top: 48px;
+
+    &:nth-of-type(n + 2) {
+      margin-top: 20px;
+
+      @include media(pc) {
+        margin-top: 48px;
+      }
+    }
+  }
+
+  .Projects__BodyAfterSteps {
+    margin-bottom: 25px;
+
+    @include media(pc) {
+      margin-top: 70px;
+      margin-bottom: 75px;
+    }
+
+    .MD_ProjectsTextsWrapper {
+      margin-top: 22px;
+    }
+  }
+
+  .Projects__FooterButtonContainer {
+    margin-bottom: 80px;
+    text-align: center;
+
+    @include media(pc) {
+      margin-bottom: 110px;
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.MD_ProjectsTextsWrapper {
+  margin-top: 16px;
+
+  @include media(pc) {
+    margin-top: 26px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  > p {
+    font-size: 14px;
+    line-height: 1.86;
+
+    > img {
+      margin-top: 24px;
+
+      @include media(pc) {
+        margin-top: 44px;
+      }
+    }
+  }
+
+  :global {
+    .isSP {
+      @include media(pc) {
+        display: none;
+      }
+    }
+  }
+}

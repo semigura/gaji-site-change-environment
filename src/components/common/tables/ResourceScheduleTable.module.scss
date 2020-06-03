@@ -1,0 +1,79 @@
+@import 'config/theme';
+
+.ResourceScheduleTable {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid $border-gray;
+
+  @include media(tablet) {
+    width: 500px;
+  }
+
+  > thead {
+    > tr {
+      > th {
+        width: 100px;
+        height: 30px;
+        border: 1px solid $border-gray;
+        background-color: mix($white, $blue-gray, 75%);
+        color: $base;
+        font-size: 14px;
+        line-height: 1.75;
+        text-align: center;
+
+        @include media(tablet) {
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        height: 70px;
+        border: 1px solid $border-gray;
+        color: $base;
+        font-size: 14px;
+        line-height: 1.75;
+        text-align: center;
+
+        @include media(tablet) {
+          height: 80px;
+          font-size: 16px;
+        }
+      }
+
+      > th {
+        min-width: 140px;
+        background-color: mix($white, $blue-gray, 75%);
+        text-align: center;
+
+        @include media(tablet) {
+          width: 200px;
+        }
+      }
+    }
+
+    > tr:not(:first-child) {
+      > th {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .ResourceScheduleTable__Icon {
+    display: block;
+    width: 33px;
+    height: 24px;
+    margin: 0 auto 2px;
+  }
+
+  .ResourceScheduleTable__Status {
+    width: 24px;
+    height: 24px;
+  }
+}

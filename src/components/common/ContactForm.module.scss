@@ -1,0 +1,162 @@
+@import 'config/theme';
+
+.ContactForm {
+  @mixin field($isEditable: true) {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    box-shadow: 0 0 0 1px #b2b2b2;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $white inset, 0 0 0 1px #b2b2b2;
+    }
+
+    &.isError {
+      background-color: mix($white, $caution, 90%);
+    }
+
+    @if $isEditable == true {
+      &:read-only {
+        min-height: 16px;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        box-shadow: 0 0 0 1000px $white inset, 0 0 0 1px $white;
+        font-weight: bold;
+        line-height: 1.75;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .ContactForm__Title {
+    margin-bottom: 30px;
+  }
+
+  .ContactForm__Form {
+    padding: 0 20px;
+    border: 1px solid $border-gray-L1;
+    background-color: $white;
+  }
+
+  .ContactForm__Field {
+    max-width: 470px;
+    margin: 30px auto 0;
+  }
+
+  .ContactForm__Label {
+    display: block;
+  }
+
+  .ContactForm__Required {
+    padding-left: 0.5em;
+    color: $caution;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .ContactForm__List {
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  .ContactForm__Input {
+    @include field;
+  }
+
+  .ContactForm__ShortInput {
+    @include field;
+
+    @include media(tablet) {
+      max-width: 250px;
+    }
+  }
+
+  .ContactForm__SelectContainer {
+    position: relative;
+    width: 100%;
+
+    @include media(tablet) {
+      max-width: 250px;
+    }
+  }
+
+  .ContactForm__Select {
+    @include field($isEditable: false);
+  }
+
+  .ContactForm__SelectIcon {
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 10px;
+    color: #b2b2b2;
+  }
+
+  .ContactForm__Textarea {
+    @include field;
+
+    height: auto;
+    min-height: 200px;
+    padding: 12px 16px;
+    line-height: 1.75;
+
+    &.isConfirm {
+      height: auto;
+      overflow: visible;
+      resize: none;
+      appearance: unset;
+    }
+  }
+
+  .ContactForm__Error {
+    margin: 6px 0 0;
+    color: $caution;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.571428571;
+  }
+
+  .ContactForm__Message {
+    margin: 0;
+    font-weight: bold;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+
+  .ContactForm__Privacy {
+    max-width: 470px;
+    margin: 30px auto 0;
+    padding: 20px;
+    background-color: $background-gray;
+
+    @include media(tablet) {
+      margin-top: 50px;
+      text-align: center;
+    }
+  }
+
+  .ContactForm__Buttons {
+    margin: 25px 0 50px;
+    text-align: center;
+  }
+
+  .ContactForm__ConfirmButton {
+    margin-bottom: 30px;
+  }
+
+  .ContactForm__CorrectButton {
+    max-width: 500px;
+    margin: 0 auto 30px;
+  }
+}

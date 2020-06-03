@@ -1,0 +1,112 @@
+@import 'config/theme';
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid $border-gray;
+
+  tr {
+    > th,
+    > td {
+      padding: 6px 10px;
+      border: 1px solid $border-gray;
+      color: $base;
+      font-size: 14px;
+      line-height: 1.57;
+
+      @include media(pc) {
+        padding: 14px 20px;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+    }
+
+    > th {
+      background-color: $background-blue-gray;
+      font-weight: normal;
+      text-align: center;
+    }
+
+    > td {
+      > p {
+        margin: 0;
+      }
+    }
+  }
+
+  &.isFixed {
+    table-layout: fixed;
+  }
+
+  &.isNowrap {
+    tr {
+      > th {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &.isVerticalWhenSP {
+    display: block;
+    border-bottom: none;
+
+    @include media(tablet) {
+      display: table;
+      border: 1px solid $border-gray;
+    }
+
+    tr {
+      display: block;
+      width: 100%;
+
+      @include media(tablet) {
+        display: table-row;
+        width: auto;
+      }
+
+      > th,
+      > td {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $border-gray;
+
+        @include media(tablet) {
+          display: table-cell;
+          width: auto;
+          border: 1px solid $border-gray;
+        }
+      }
+    }
+  }
+
+  .Table__AlignCenter {
+    text-align: center;
+  }
+
+  .Table__Text {
+    margin: 0;
+  }
+
+  .Table__List {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+  }
+
+  .Table__ListItem {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: -15px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999em;
+      background: #bfbfbf;
+    }
+  }
+}

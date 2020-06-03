@@ -1,0 +1,44 @@
+.FigureLayout {
+  > figure + figure {
+    margin-top: 30px;
+
+    @include media(pc) {
+      margin-top: 30px;
+    }
+  }
+
+  @include media(pc) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: -30px;
+
+    > figure {
+      max-width: 47.5%;
+      margin-top: 30px;
+
+      + figure {
+        margin-left: 40px;
+      }
+    }
+
+    &.is3column {
+      justify-content: space-between;
+
+      > figure {
+        max-width: 30%;
+        margin-top: 30px;
+
+        + figure {
+          margin-left: 0;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 30%;
+      }
+    }
+  }
+}

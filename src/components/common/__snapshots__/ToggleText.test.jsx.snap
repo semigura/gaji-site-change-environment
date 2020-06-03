@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToggleText /> renders correctly when PC 1`] = `
+<div
+  className="ToggleText"
+>
+  <p
+    className="Index__LeadText"
+  >
+    Gaji-Laboは変化や刺激を必要としているチームの「変数」となり、チームの殻をやわらかくする会社です。チームが持っているそれぞれの物差しに合わせ、生まれる価値や熱量を見つけたり膨らませたり整えたりすること。そのために影で伴走する黒子の役割が、私たちGaji-Laboの仕事です。
+  </p>
+</div>
+`;
+
+exports[`<ToggleText /> renders correctly when SP 1`] = `
+<div
+  className="ToggleText"
+>
+  <ForwardRef />
+  <button
+    aria-label="開く"
+    className="ToggleText__Button"
+    onClick={[Function]}
+    type="button"
+  />
+</div>
+`;

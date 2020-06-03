@@ -1,0 +1,42 @@
+@import 'config/theme';
+
+.Image3Column {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -10px;
+  padding: 0;
+
+  > li {
+    flex-basis: calc(50% - 20px);
+    margin: 10px;
+    list-style-type: none;
+
+    > img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  & + .Image3Column {
+    margin-top: 20px;
+  }
+
+  @include media(tablet) {
+    margin: -20px;
+
+    > li {
+      flex-basis: calc(33.33% - 40px);
+      margin: 20px;
+    }
+
+    & + .Image3Column {
+      margin-top: 40px;
+    }
+
+    &::after {
+      width: 33.33%;
+    }
+  }
+}

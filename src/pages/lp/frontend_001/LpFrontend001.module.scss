@@ -1,0 +1,690 @@
+@import 'config/theme';
+
+.lpfe001Header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  padding: 12px 20px;
+  transition: all 0.25s ease-in-out;
+
+  @include media(tablet) {
+    padding: 30px 20px;
+  }
+
+  .lpfe001Header__Container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .lpfe001Header__LogoInner {
+    width: 160px;
+    height: 30px;
+    margin: 0;
+    color: $white;
+
+    @include media(tablet) {
+      width: 214px;
+      height: 40px;
+    }
+  }
+
+  .lpfe001Header__Logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .lpfe001Header__ToFormAnchor {
+    width: 110px;
+    height: 36px;
+    margin: 0;
+    border: solid 2px $white;
+    border-radius: 999px;
+    background-color: $white;
+    color: #0085cc;
+
+    @include media(tablet) {
+      width: 146px;
+      height: 40px;
+    }
+
+    &:hover {
+      border-color: #0085cc;
+      background-color: #0085cc;
+      color: $white;
+    }
+  }
+
+  .lpfe001Header__ToFormAnchorItem {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    @include media(tablet) {
+      padding: 4px;
+    }
+  }
+
+  &.isFloat {
+    width: 100%;
+    height: 60px;
+    background-color: rgba($white, 0.95);
+    box-shadow: 0 1px 0 0 $gray-L1;
+
+    @include media(tablet) {
+      height: 70px;
+      padding: 15px 20px;
+    }
+
+    .lpfe001Header__LogoInner {
+      color: $black;
+    }
+
+    .lpfe001Header__ToFormAnchor {
+      border-color: #0085cc;
+      background-color: #0085cc;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: #0085cc;
+      }
+    }
+  }
+}
+
+.lpfe001KeyVisual {
+  width: 100%;
+  padding: 113px 20px 20px;
+  background-image: url(../../../static/images/lp/frontend_001/key-visual.jpg);
+  background-position: right;
+  background-size: cover;
+
+  @include media(tablet) {
+    padding: 188px 20px 107px;
+    background-position: center center;
+  }
+
+  .lpfe001KeyVisual__LeadText {
+    margin: 0;
+    color: $white;
+    /* stylelint-disable-next-line */
+    font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
+      'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
+    font-size: 35px;
+    font-weight: normal;
+    line-height: 1.57;
+    text-align: center;
+    word-break: keep-all;
+
+    @include media(tablet) {
+      font-size: 57px;
+      line-height: 1.4;
+    }
+  }
+
+  .lpfe001KeyVisual__List {
+    margin: 30px 0 0;
+    padding: 0;
+    list-style-type: none;
+
+    @include media(tablet) {
+      display: flex;
+      justify-content: center;
+      margin-top: 38px;
+    }
+
+    > li {
+      margin-top: 4px;
+      padding: 6px;
+      background-color: rgba($black, 0.6);
+      color: $gray;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: center;
+
+      @include media(tablet) {
+        width: 264px;
+        margin: 0 2px;
+        padding: 13px;
+        font-size: 18px;
+        line-height: 2;
+      }
+    }
+  }
+
+  .lpfe001KeyVisual__ToFormAnchor {
+    margin: 57px 0 0;
+    border: solid 2px $white;
+    border-radius: 999px;
+    background-color: #0085cc;
+    color: $white;
+
+    &:hover {
+      border-color: #0085cc;
+      background-color: $white;
+      color: #0085cc;
+    }
+
+    @include media(tablet) {
+      width: 570px;
+      margin: 98px auto 0;
+    }
+  }
+
+  .lpfe001KeyVisual__ToFormAnchorItem {
+    display: block;
+    position: relative;
+    padding: 9px 0 11px 25px;
+    font-size: 18px;
+    line-height: 1.33;
+    text-align: center;
+    text-decoration: none;
+
+    @include media(tablet) {
+      padding: 18px 0 15px 32px;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+  }
+
+  .lpfe001KeyVisual__ToFormAnchorIcon {
+    position: absolute;
+    top: 18px;
+    left: 33px;
+    width: 27px;
+    height: 30px;
+
+    @include media(tablet) {
+      left: 37px;
+    }
+  }
+}
+
+.lpfe001Introduce {
+  position: relative;
+  padding: 38px 20px 83px;
+
+  @include media(tablet) {
+    padding-top: 63px;
+    padding-bottom: 109px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: calc(50% - 23px);
+    bottom: 0;
+    width: 46px;
+    height: 46px;
+    background-image: url(../../../static/images/lp/frontend_001/icon-solve.svg);
+    background-size: cover;
+
+    @include media(tablet) {
+      right: calc(50% - 25px);
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .lpfe001Introduce__Text {
+    margin: 0;
+    color: $gray-D2;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.8;
+
+    @include media(tablet) {
+      font-size: 18px;
+      line-height: 2;
+      text-align: center;
+    }
+  }
+}
+
+.lpfe001Section {
+  .lpfe001Section__Inner {
+    padding: 34px 20px 28px;
+
+    @include media(tablet) {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 68px 20px 66px;
+    }
+  }
+
+  &.isBackgroundGray {
+    background-color: $gray-L2;
+  }
+}
+
+.lpfe001Heading {
+  margin: 0;
+  color: $gray-D2;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: center;
+
+  @include media(tablet) {
+    font-size: 30px;
+    line-height: 1.5;
+  }
+}
+
+.lpfe001MeritList {
+  margin: 23px 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include media(tablet) {
+    display: flex;
+    margin: 46px -32px 0;
+  }
+
+  /* stylelint-disable-next-line */
+  > li {
+    @include media(tablet) {
+      width: calc(33% - 40px);
+      margin: 0 22px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 26px;
+
+      @include media(tablet) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .lpfe001MeritList__Figure {
+    margin: 0;
+
+    > figcaption {
+      margin-top: 10px;
+      color: $gray-D2;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+
+      @include media(tablet) {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+    }
+  }
+}
+
+.lpfe001ModelCaseList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 18px -5px 11px;
+  padding: 0;
+  list-style-type: none;
+
+  @include media(tablet) {
+    flex-wrap: nowrap;
+    margin: 22px -20px 0;
+  }
+
+  /* stylelint-disable-next-line */
+  > li {
+    width: calc(33% - 10px);
+    margin: 5px;
+    padding: 14px 0 9px;
+    background-color: $white;
+    color: $gray-D2;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33;
+    text-align: center;
+
+    @include media(tablet) {
+      margin: 10px;
+      padding: 22px 0 8px;
+      font-size: 14px;
+      line-height: 1.57;
+
+      &:nth-child(4) {
+        .lpfe001ModelCaseList__Icon {
+          height: 52px;
+          margin-top: 4px;
+          margin-bottom: 23px;
+        }
+      }
+    }
+  }
+
+  .lpfe001ModelCaseList__Icon {
+    display: block;
+    height: 40px;
+    margin: 0 auto 12px;
+
+    @include media(tablet) {
+      height: 60px;
+      margin-bottom: 19px;
+    }
+  }
+}
+
+.lpfe001ModelCaseText {
+  margin: 0 0 9px;
+  color: $gray-D2;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+
+  @include media(tablet) {
+    margin: 14px 0 -2px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}
+
+.lpfe001CaseStudiesList {
+  margin: 23px 0 13px;
+
+  @include media(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 14px -32px -17px;
+  }
+
+  > div {
+    border: solid 1px $gray-L1;
+
+    @include media(tablet) {
+      width: calc(50% - 40px);
+      margin: 19px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 19px;
+    }
+
+    > dt {
+      padding: 19px 19px 12px;
+      background-color: $gray-D2;
+
+      @include media(tablet) {
+        min-height: 191px;
+        padding-bottom: 6px;
+      }
+    }
+
+    > dd {
+      margin: 0;
+      padding: 19px 19px 5px;
+    }
+  }
+
+  .lpfe001CaseStudiesList__ProblemTitle {
+    position: relative;
+    margin: 0;
+    padding-top: 3px;
+    padding-left: 44px;
+    color: $white;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+
+    @include media(tablet) {
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-image: url(../../../static/images/lp/frontend_001/icon-problem.svg);
+      background-size: contain;
+
+      @include media(tablet) {
+        width: 34px;
+        height: 34px;
+      }
+    }
+  }
+
+  .lpfe001CaseStudiesList__ProblemText {
+    margin: 8px 0 0;
+    color: $white;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+
+    @include media(tablet) {
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+  }
+
+  .lpfe001CaseStudiesList__ProblemType {
+    margin: 4px 0;
+    color: $white;
+    font-size: 12px;
+    line-height: 1.5;
+
+    @include media(tablet) {
+      margin: 11px 0;
+      font-size: 14px;
+      line-height: 1.57;
+    }
+  }
+
+  .lpfe001CaseStudiesList__SolveTitle {
+    position: relative;
+    margin: 0;
+    padding-top: 3px;
+    padding-left: 44px;
+    color: $gray-D2;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+
+    @include media(tablet) {
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background-image: url(../../../static/images/lp/frontend_001/icon-solve.svg);
+      background-size: contain;
+
+      @include media(tablet) {
+        width: 34px;
+        height: 34px;
+      }
+    }
+  }
+
+  .lpfe001CaseStudiesList__SolveText {
+    margin: 10px 0;
+    color: $gray-D2;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+
+    @include media(tablet) {
+      margin: 8px 0;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+  }
+}
+
+.lpfe001ContactText {
+  margin: 20px 0;
+  color: $gray-D2;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  @include media(tablet) {
+    margin: 31px 0 0;
+    font-size: 16px;
+    line-height: 1.75;
+    text-align: center;
+  }
+}
+
+.lpfe001ContactForm {
+  margin: 26px 0 13px;
+
+  @include media(tablet) {
+    max-width: 800px;
+    margin: 35px auto 0;
+  }
+
+  > form > p > button {
+    border: solid 2px transparent;
+    background-color: #0085cc;
+    color: $white;
+
+    &:hover {
+      border: solid 2px #0085cc;
+      background-color: $white;
+      color: #0085cc;
+    }
+  }
+}
+
+.lpfe001About {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+
+  @include media(tablet) {
+    display: block;
+  }
+
+  .lpfe001About__Title {
+    margin: 0;
+    color: $gray-D2;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.55;
+    text-align: center;
+
+    @include media(tablet) {
+      font-size: 24px;
+      line-height: 1.88;
+      text-align: left;
+    }
+  }
+
+  .lpfe001About__DetailList {
+    margin: 22px 0 0;
+
+    @include media(tablet) {
+      margin-top: 17px;
+    }
+
+    > dt {
+      color: $gray-D2;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+
+      @include media(tablet) {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+    }
+
+    > dd {
+      margin: 2px 0 0;
+      color: $gray-D2;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+
+      @include media(tablet) {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      + dt {
+        margin-top: 12px;
+
+        @include media(tablet) {
+          margin-top: 18px;
+        }
+      }
+    }
+  }
+
+  .lpfe001About__Copyright {
+    display: block;
+    order: 2;
+    margin: 20px 0;
+    color: $gray-D2;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+
+    @include media(tablet) {
+      margin-top: 83px;
+      text-align: left;
+    }
+  }
+
+  .lpfe001About__MapContainer {
+    order: 1;
+    width: 100%;
+    height: 242px;
+    margin-top: 25px;
+
+    @include media(tablet) {
+      width: 400px;
+      height: 289px;
+      margin-top: calc(-24px * 1.88);
+      margin-left: 12px;
+      float: right;
+    }
+  }
+
+  .lpfe001About__Map {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.lpfe001IsSPonly {
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.lpfe001IsPConly {
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+  }
+}

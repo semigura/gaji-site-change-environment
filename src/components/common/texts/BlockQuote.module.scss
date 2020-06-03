@@ -1,0 +1,53 @@
+@import 'config/theme';
+
+.BlockQuote {
+  margin: 0;
+  padding: 12px 20px;
+  background-color: $background-gray;
+
+  @include media(pc) {
+    padding: 14px 30px;
+  }
+
+  &::before,
+  &::after {
+    display: block;
+    height: 30px;
+    color: mix($white, $blue-gray-D1, 50%);
+    font-family: $secondary-sans-serif;
+    font-size: 74px;
+    line-height: 1;
+  }
+
+  &::before {
+    content: '“';
+    margin-bottom: 14px;
+  }
+
+  &::after {
+    content: '”';
+    margin-top: 12px;
+    text-align: right;
+  }
+
+  > cite {
+    display: block;
+    margin-top: 6px;
+    color: $base;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.5;
+    text-align: right;
+  }
+
+  .BlockQuote__Text {
+    margin: 0;
+    color: $base;
+    font-size: 14px;
+    line-height: 1.86;
+
+    + .BlockQuote__Text {
+      margin-top: 10px;
+    }
+  }
+}

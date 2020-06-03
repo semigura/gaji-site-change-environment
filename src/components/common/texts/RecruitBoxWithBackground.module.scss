@@ -1,0 +1,16 @@
+.RecruitBoxWithBackground {
+  padding: 20px;
+  background: mix($white, $black, 85%);
+  background-image: linear-gradient($white 2px, transparent 0),
+    linear-gradient(90deg, $white 2px, transparent 0);
+  background-size: 3px 3px;
+
+  .RecruitBoxWithBackground__Title {
+    margin: 0 0 15px;
+    color: $base;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.67;
+    text-align: justify;
+  }
+}

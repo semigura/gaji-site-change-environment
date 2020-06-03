@@ -1,0 +1,99 @@
+@import 'config/theme';
+
+.glossary {
+  padding-bottom: 50px;
+
+  @include media(pc) {
+    padding-top: 50px;
+  }
+
+  .glossary__List {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .glossary__ListItem {
+    color: $gray-D1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.86;
+
+    @include media(pc) {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    & + .glossary__ListItem {
+      margin-top: 20px;
+    }
+
+    &::before {
+      content: '-';
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  .glossary__ListLink {
+    > a {
+      margin-left: 10px;
+      font-size: 16px;
+      font-weight: normal;
+
+      @include media(pc) {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .glossary__Date {
+    display: block;
+    margin: 0;
+    padding: 2px 0 2px 15px;
+    border-left: 4px solid $border-gray-L1;
+    color: $gray-D1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.86;
+    text-align: justify;
+  }
+
+  .glossary__Title {
+    margin: 20px 0 30px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $blue-gray;
+    color: $base;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.75;
+  }
+}
+
+.MD_glossaryWrapper {
+  margin: 50px 0;
+  color: $base;
+
+  > h2:not([class]) {
+    margin-top: 31.5px;
+  }
+
+  > p {
+    margin: 12px 0;
+  }
+
+  > dl:not([class]) {
+    margin: 0 0 30px;
+  }
+
+  :global {
+    .glossaryContactLink {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .Table {
+      margin: 50px 0;
+    }
+  }
+}

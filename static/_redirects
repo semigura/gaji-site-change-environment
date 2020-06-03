@@ -1,0 +1,9 @@
+/top/* https://www.gaji.jp/ 301!
+/announcement/* https://blog.gaji.jp/announcement/:splat 301!
+/blog/* https://blog.gaji.jp/blog/:splat 301!
+/bookreview/* https://blog.gaji.jp/bookreview/:splat 301!
+/category/* https://blog.gaji.jp/category/:splat 301!
+/development/* https://blog.gaji.jp/development/:splat 301!
+/etc/* https://blog.gaji.jp/etc/:splat 301!
+/event/* https://blog.gaji.jp/event/:splat 301!
+/tag/* https://blog.gaji.jp/tag/:splat 301!

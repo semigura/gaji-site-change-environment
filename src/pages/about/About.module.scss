@@ -1,0 +1,131 @@
+@import 'config/theme';
+
+.AboutWrapper {
+  :global {
+    .ContactLink {
+      margin-top: 50px;
+
+      @include media(pc) {
+        margin-top: 100px;
+      }
+    }
+  }
+}
+
+.About {
+  .About__KeyVisual {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    padding: 70px 20px 20px;
+    transform: translateX(-50%);
+    background-image: url('../../static/images/kv-pc.png');
+    background-repeat: no-repeat;
+    background-position: 35% center;
+    background-size: cover;
+    text-align: center;
+
+    @include media(pc) {
+      padding: 120px 20px;
+      background-position: center 70%;
+      background-size: 75%;
+    }
+  }
+
+  .About__KeyVisualText {
+    margin: 0;
+    color: $base;
+    font-family: $serif;
+    font-size: 40px;
+    letter-spacing: -2px;
+    line-height: 1.4;
+
+    @include media(pc) {
+      font-size: 46px;
+    }
+  }
+
+  .About__Contents {
+    @include media(pc) {
+      margin-top: -100px;
+    }
+  }
+
+  .About__Section {
+    & + .About__Section {
+      margin-top: 90px;
+    }
+
+    @include media(pc) {
+      &:nth-of-type(2) {
+        margin-top: 140px;
+      }
+    }
+  }
+
+  .About__Title {
+    margin-bottom: 25px;
+
+    & + .About__Catch {
+      margin-top: 30px;
+    }
+
+    @include media(pc) {
+      margin-bottom: 48px;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .About__Catch {
+    margin: 70px 0 0;
+    color: $base;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.67;
+    text-align: center;
+
+    + .About__Text {
+      margin-top: 10px;
+
+      @include media(pc) {
+        margin-top: 15px;
+      }
+    }
+
+    @include media(pc) {
+      margin-top: 55px;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .About__Text {
+    margin: 0;
+    color: $base;
+    font-size: 16px;
+    line-height: 1.75;
+
+    @include media(pc) {
+      line-height: 2;
+    }
+  }
+
+  .About__ButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    @include media(pc) {
+      margin: 50px 0;
+    }
+  }
+
+  .About__Button {
+    margin: 0 auto;
+  }
+
+  .isSP {
+    @include media(pc) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import 'config/theme';
+
+.Title {
+  text-align: center;
+
+  .Title__Text {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 10px;
+    color: $base;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.67;
+    vertical-align: top;
+
+    @include media(pc) {
+      display: inline-flex;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 20px;
+      background-color: $base;
+    }
+
+    &::before {
+      margin-bottom: 6px;
+    }
+
+    &::after {
+      margin-top: 6px;
+    }
+
+    &.withColor {
+      padding: 15px 10px;
+      background-color: $base;
+      color: $white;
+
+      &::before,
+      &::after {
+        background-color: white;
+      }
+    }
+  }
+}

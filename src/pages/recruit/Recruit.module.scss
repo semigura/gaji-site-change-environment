@@ -1,0 +1,102 @@
+@import 'config/theme';
+
+.RecruitWrapper {
+  :global {
+    .SecondTitle {
+      margin: 40px 0 30px;
+    }
+
+    .ThirdTitle {
+      margin-top: 40px;
+    }
+
+    .List {
+      margin-top: 8px;
+    }
+
+    .Table {
+      margin-top: 30px;
+    }
+
+    .RecruitAnchorList {
+      margin-top: 20px;
+
+      @include media(pc) {
+        margin-top: 17px;
+      }
+    }
+
+    .RecruitBoxWithBackground {
+      margin-top: 24px;
+
+      @include media(pc) {
+        margin-top: 40px;
+      }
+    }
+
+    .RecruitOrderedBox {
+      margin-top: 16px;
+    }
+  }
+}
+
+.RecruitDetailWrapper {
+  color: $gray-D2;
+
+  :global {
+    .SecondTitle {
+      margin: 40px 0 30px;
+    }
+
+    .Table {
+      margin-top: 30px;
+    }
+
+    .RecruitBoxWithBackground {
+      margin-top: 40px;
+    }
+
+    .RecruitOrderedBox {
+      margin-top: 16px;
+    }
+  }
+}
+
+.MD_RecruitDetailWrapper {
+  > p {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.Recruit {
+  margin-top: -8px;
+
+  @include media(pc) {
+    margin-top: 0;
+    padding-top: 63px;
+  }
+
+  .Recruit__Link {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .Recruit__OrderedList {
+    padding: 0 0 50px 20px;
+    color: $base;
+    font-size: 16px;
+
+    > li + li {
+      margin-top: 10px;
+    }
+  }
+
+  .Recruit__ContactForm {
+    margin-bottom: 62px;
+  }
+}

@@ -1,0 +1,13 @@
+@import 'config/theme';
+
+.CaseStudyId {
+  display: block;
+  margin: 0;
+  padding: 2px 0 2px 15px;
+  border-left: 4px solid $border-gray-L1;
+  color: $gray-D1;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.86;
+  text-align: justify;
+}

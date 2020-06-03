@@ -1,0 +1,22 @@
+@import 'config/theme';
+
+.RecruitContact {
+  padding-bottom: 50px;
+  color: $base;
+
+  @include media(pc) {
+    padding-bottom: 100px;
+  }
+
+  .RecruitContact__Description {
+    margin-bottom: 50px;
+    font-size: 16px;
+    line-height: 1.75;
+    text-align: left;
+
+    @include media(pc) {
+      margin: 100px 0;
+      text-align: center;
+    }
+  }
+}

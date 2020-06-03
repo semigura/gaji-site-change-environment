@@ -1,0 +1,40 @@
+@import 'config/theme';
+
+.PrivacyWrapper {
+  :global {
+    .SecondTitle {
+      margin: 40px 0 30px;
+    }
+
+    .ThirdTitle {
+      margin: 25px 0 20px;
+    }
+
+    .List {
+      margin-top: 15px;
+    }
+  }
+}
+
+.Privacy {
+  padding-bottom: 50px;
+
+  @include media(pc) {
+    padding-top: 50px;
+  }
+
+  .Privacy__OrderedList {
+    padding-left: 20px;
+    color: $base;
+    font-size: 16px;
+
+    > li + li {
+      margin-top: 10px;
+    }
+  }
+
+  .Privacy__Detail {
+    margin: 0;
+    color: $base;
+  }
+}

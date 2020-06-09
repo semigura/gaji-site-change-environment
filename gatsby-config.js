@@ -155,6 +155,25 @@ module.exports = {
       options: {
         tz: 'Asia/Tokyo',
       },
-    }
+    },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "e0b6dcc9da68e302a97a0fd911a491c3422c3a29.hl-a.getshifter.co",
+        protocol: "https",
+        restApiRoutePrefix: "wp-json",
+        hostingWPCOM: false,
+        useACF: false,
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+        ],
+      },
+    },
   ],
 };

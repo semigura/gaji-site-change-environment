@@ -3,7 +3,7 @@
   "repository": "git@github.com:Gaji-Labo/gaji-site.git",
   "private": true,
   "engines": {
-    "node": "12.17.0"
+    "node": "12.18.0"
   },
   "scripts": {
     "dev": "yarn && yarn svg-sprite && gatsby develop",

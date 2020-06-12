@@ -8,12 +8,10 @@ import css from './News.module.scss';
 
 const News = props => {
   const { data } = props;
-  console.log(data.allWordpressPost.edges.node)
   const posts = data.allWordpressPost.edges.map(edge => ({
-    ...edge.node.categories,
+    ...edge.node,
     id: edge.node.id,
   }));
-  console.log(posts)
 
   const pageTitle = 'お知らせ';
   const url = 'https://www.gaji.jp/news/';
@@ -41,7 +39,7 @@ const News = props => {
             <li key={post.id} className={css.News__ListItem}>
               {post.date}
               <TextLink
-                to={post.slug}
+                to={`/news${post.path}`}
                 label={post.title}
                 className={css.News__ListLink}
               />
@@ -66,27 +64,6 @@ export const pageQuery = graphql`
           date(formatString: "YYYY.MM.DD")
           categories {
             slug
-          }
-        }
-      }
-    }
-
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { type: { eq: "news" } }
-        fields: { draft: { eq: false } }
-      }
-    ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY.MM.DD")
-            title
           }
         }
       }

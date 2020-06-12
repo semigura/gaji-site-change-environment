@@ -4,6 +4,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 const createPages = (createPage, posts) => {
   posts.forEach(edge => {
+    let pagePath;
     if (
       edge.node.categories[0].slug === 'uncategorized' ||
       edge.node.categories[0].slug === 'index-clients' ||
@@ -13,8 +14,15 @@ const createPages = (createPage, posts) => {
     ) {
       return;
     }
+    if (
+      edge.node.categories[0].slug === 'model-cases'
+    ) {
+      pagePath = `/case-studies/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`
+    } else {
+      pagePath = `/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`
+    }
     createPage({
-      path: `/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`,
+      path: pagePath,
       tags: edge.node.tags,
       component: path.resolve(
         `src/templates/${String(edge.node.categories[0].slug)}.jsx`,

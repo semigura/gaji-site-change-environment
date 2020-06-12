@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+// import { graphql, Link } from 'gatsby';
 import { isEmpty } from 'lodash';
 import Layout from '../components/common/Layout';
 import Button from '../components/common/Button';
-import Title from '../components/common/Title';
-import TextLink from '../components/common/TextLink';
+// import Title from '../components/common/Title';
+// import TextLink from '../components/common/TextLink';
 import PdfFileSize from '../components/common/PdfFileSize';
 
 import css from './ModelCases.module.scss';
@@ -87,7 +88,7 @@ const ModelCases = (props) => {
           {post.acf.modelCasesImageText && (
             <p>{post.acf.modelCasesImageText}</p>
           )}
-          {!isEmpty(post.acf.samples[0].sampleImage) && (
+          {/*! isEmpty(post.acf.samples[0].sampleImage) && (
             <div className="BackgroundGray">
               <div className="BackgroundGray__Container">
                 <div className="ProductsSample">
@@ -118,9 +119,9 @@ const ModelCases = (props) => {
                 </div>
               </div>
             </div>
-          )}
+                          ) */}
         </div>
-        {!isEmpty(post.acf.pickupProject.projectDescription) && (
+        {/*! isEmpty(post.acf.pickupProject.projectDescription) && (
           <div className={css.ModelCasesPickupProjectWrapper}>
             <Title>同じソリューションで貢献したプロジェクト</Title>
             {!isEmpty(post.acf.pickupProject.projectImage) && (
@@ -142,8 +143,8 @@ const ModelCases = (props) => {
               </p>
             )}
           </div>
-        )}
-        {!isEmpty(post.acf.relativeLinks[0].relativeLinkUrl) && (
+            ) */}
+        {/*! isEmpty(post.acf.relativeLinks[0].relativeLinkUrl) && (
           <>
             <Title className="LinkListTitle">関連するメソッド</Title>
             <div className="LinkList">
@@ -158,7 +159,7 @@ const ModelCases = (props) => {
               </ul>
             </div>
           </>
-        )}
+                ) */}
         <div className="ContactLink">
           <div className="ContactLink__Container">
             <p className="ContactLink__Texts">
@@ -266,6 +267,10 @@ export const pageQuery = graphql`
       title
       type
       wordpress_id
+      categories {
+        name
+        slug
+      }
     }
   }
 `;

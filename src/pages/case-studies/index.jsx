@@ -23,8 +23,7 @@ const CaseStudies = ({ data }) => {
     : false;
 
   const modelCases = data.modelCases.edges.map(edge => ({
-    ...edge.node.frontmatter,
-    ...edge.node.fields,
+    ...edge.node,
     id: edge.node.id,
   }));
 
@@ -143,8 +142,7 @@ const CaseStudies = ({ data }) => {
               <ul>
                 {modelCases.map(post => (
                   <li key={post.id}>
-                    {post.date}
-                    <Link to={post.slug} label={post.title}>
+                    <Link to={`/case-studies/model-cases${post.path}`} label={post.title}>
                       {post.title}
                     </Link>
                   </li>
@@ -259,23 +257,18 @@ export const pageQuery = graphql`
       }
     }
 
-    modelCases: allMarkdownRemark(
-      sort: { fields: [frontmatter___caseId], order: DESC }
-      filter: {
-        frontmatter: { type: { eq: "model-cases" } }
-        fields: { draft: { eq: false } }
-      }
+    modelCases: allWordpressPost(
+      filter: {categories: {elemMatch: {slug: {eq: "model-cases"}}}}
       limit: 20
     ) {
       edges {
         node {
           id
-          fields {
+          path
+          title
+          date(formatString: "YYYY.MM.DD")
+          categories {
             slug
-          }
-          frontmatter {
-            title
-            description
           }
         }
       }

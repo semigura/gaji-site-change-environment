@@ -163,7 +163,7 @@ module.exports = {
         protocol: "https",
         restApiRoutePrefix: "wp-json",
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
         includedRoutes: [
           "**/categories",
           "**/posts",

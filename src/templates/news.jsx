@@ -9,10 +9,12 @@ import css from '../pages/news/News.module.scss';
 
 const News = (props) => {
   const { data } = props;
-  const { markdownRemark: post, site } = data;
-  const title = `${post.frontmatter.title}`;
-  const url = `${site.siteMetadata.siteUrl}${post.fields.slug}`;
-  const description = post.frontmatter.description || post.excerpt;
+  const { wordpressPost: post, site } = data;
+  const title = `${post.title}`;
+  const url = `${site.siteMetadata.siteUrl}/${String(
+    post.categories[0].slug,
+  )}/${post.slug}/`;
+  const description = post.acf.description || post.excerpt;
   const pageTitle = 'お知らせ';
   const breadcrumbs = [
     {
@@ -20,7 +22,7 @@ const News = (props) => {
       title: pageTitle,
     },
     {
-      title: post.frontmatter.title,
+      title: post.title,
     },
   ];
 
@@ -32,20 +34,20 @@ const News = (props) => {
       breadcrumbs={breadcrumbs}
       ogpTitle={title}
       ogpDescription={description}
-      ogpThumbnail={post.frontmatter.ogpThumbnail}
+      ogpThumbnail={post.ogpThumbnail}
       pageUrl={url}
       ogpType="article"
       wrapperClassName={css.NewsWrapper}
     >
       <div className={css.News}>
-        <p className={css.News__Date}>{post.frontmatter.date}</p>
-        <h1 className={css.News__Title}>{post.frontmatter.title}</h1>
+        <p className={css.News__Date}>{post.date}</p>
+        <h1 className={css.News__Title}>{post.title}</h1>
         <div
           className={css.MD_NewsWrapper}
           // eslint-disable-next-line
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
-        {post.frontmatter.showContactForm && (
+        {post.acf.showContactForm && (
           <ContactForm action="/contact/success" formName="contact" />
         )}
         <p>
@@ -58,7 +60,7 @@ const News = (props) => {
 
 News.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
+    wordpressPost: PropTypes.object,
     site: PropTypes.object,
   }).isRequired,
 };
@@ -73,18 +75,53 @@ export const pageQuery = graphql`
         name
       }
     }
-    markdownRemark(id: { eq: $id }) {
-      html
-      excerpt(pruneLength: 300, truncate: true)
-      fields {
+    wordpressPost(id: { eq: $id }) {
+      content
+      date(formatString: "YYYY.MM.DD")
+      excerpt
+      id
+      modified
+      path
+      status
+      slug
+      sticky
+      template
+      title
+      type
+      wordpress_id
+      categories {
+        name
         slug
       }
-      frontmatter {
-        date(formatString: "YYYY.MM.DD")
-        title
+      acf {
+        case_id
+        contactTextFirstLine
+        contactTextSecondLine
         description
-        ogpThumbnail
+        introduction
         showContactForm
+      }
+      featured_media {
+        id
+        alt_text
+        caption
+        comment_status
+        date
+        description
+        link
+        media_type
+        mime_type
+        modified
+        path
+        ping_status
+        post
+        source_url
+        slug
+        status
+        template
+        title
+        type
+        wordpress_id
       }
     }
   }

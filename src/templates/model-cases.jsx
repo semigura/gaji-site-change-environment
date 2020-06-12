@@ -12,19 +12,21 @@ import css from './ModelCases.module.scss';
 
 const ModelCases = (props) => {
   const { data } = props;
-  const { markdownRemark: post, site } = data;
-  const title = `${post.frontmatter.title}`;
-  const url = `${site.siteMetadata.siteUrl}${post.fields.slug}`;
+  const { wordpressPost: post, site } = data;
+  const title = `${post.title}`;
+  const url = `${site.siteMetadata.siteUrl}/${String(
+    post.categories[0].slug,
+  )}/${post.slug}/`;
   const generateExcerpt = (excerptText) => {
     if (excerptText.length > 300) {
       return `${excerptText.substr(0, 300)}…`;
     }
     return excerptText;
   };
-  const description = !isEmpty(post.frontmatter.description)
-    ? post.frontmatter.description
-    : generateExcerpt(post.frontmatter.introduction);
-  const thumbnail = `${post.frontmatter.thumbnail}`;
+  const description = !isEmpty(post.acf.description)
+    ? post.acf.description
+    : generateExcerpt(post.acf.introduction);
+  //  const thumbnail = `${post.acf.thumbnail}`;
   const pageTitle = '事例紹介';
   const breadcrumbs = [
     {
@@ -32,9 +34,9 @@ const ModelCases = (props) => {
       title: pageTitle,
     },
     {
-      title: `モデルケース #${post.frontmatter.caseId
-        .toString()
-        .padStart(3, 0)} ${post.frontmatter.title}`,
+      title: `モデルケース #${post.acf.case_id.toString().padStart(3, 0)} ${
+        post.title
+      }`,
     },
   ];
 
@@ -46,20 +48,18 @@ const ModelCases = (props) => {
       breadcrumbs={breadcrumbs}
       ogpTitle={title}
       ogpDescription={description}
-      ogpThumbnail={thumbnail || '/uploads/default-thumbnail.png'}
+      ogpThumbnail="/uploads/default-thumbnail.png"
       pageUrl={url}
       ogpType="article"
       wrapperClassName={css.ModelCasesWrapper}
     >
       <div className={css.ModelCases}>
         <p className="CaseStudyId">
-          {`モデルケース #${post.frontmatter.caseId.toString().padStart(3, 0)}`}
+          {`モデルケース #${post.acf.case_id.toString().padStart(3, 0)}`}
         </p>
-        <h1 className={css.ModelCases__Title}>{post.frontmatter.title}</h1>
+        <h1 className={css.ModelCases__Title}>{post.title}</h1>
         <div className={css.MD_ModelCasesWrapper}>
-          {post.frontmatter.introduction && (
-            <p>{post.frontmatter.introduction}</p>
-          )}
+          {post.acf.introduction && <p>{post.acf.introduction}</p>}
           <div className="CaseStudySummary">
             <h2 className="CaseStudySummary__Title">
               提供できるソリューション
@@ -69,25 +69,25 @@ const ModelCases = (props) => {
                 <img src="/uploads/action.svg" alt="" />
                 Action
               </dt>
-              <dd>{post.frontmatter.summaryActionText}</dd>
+              <dd>{post.acf.summaryActionText}</dd>
               <dt>
                 <img src="/uploads/result.svg" alt="" />
                 Result
               </dt>
-              <dd>{post.frontmatter.summaryResultText}</dd>
+              <dd>{post.acf.summaryResultText}</dd>
             </dl>
           </div>
-          {post.frontmatter.modelCasesImage && (
+          {post.acf.modelCasesImage && (
             <img
-              src={post.frontmatter.modelCasesImage}
+              src={post.acf.modelCasesImage}
               className="ImageBasic"
-              alt={post.frontmatter.modelCasesImageAlt}
+              alt={post.acf.modelCasesImageAlt}
             />
           )}
-          {post.frontmatter.modelCasesImageText && (
-            <p>{post.frontmatter.modelCasesImageText}</p>
+          {post.acf.modelCasesImageText && (
+            <p>{post.acf.modelCasesImageText}</p>
           )}
-          {!isEmpty(post.frontmatter.samples[0].sampleImage) && (
+          {!isEmpty(post.acf.samples[0].sampleImage) && (
             <div className="BackgroundGray">
               <div className="BackgroundGray__Container">
                 <div className="ProductsSample">
@@ -98,7 +98,7 @@ const ModelCases = (props) => {
                     ※これはあくまでサンプルであるという旨の説明をひとこと入れる
                   </p>
                   <ul className="ProductsSampleList">
-                    {post.frontmatter.samples.map((sample) => (
+                    {post.acf.samples.map((sample) => (
                       <li
                         className="ProductsSampleList__Item"
                         key={sample.sampleImageCaption}
@@ -120,35 +120,35 @@ const ModelCases = (props) => {
             </div>
           )}
         </div>
-        {!isEmpty(post.frontmatter.pickupProject.projectDescription) && (
+        {!isEmpty(post.acf.pickupProject.projectDescription) && (
           <div className={css.ModelCasesPickupProjectWrapper}>
             <Title>同じソリューションで貢献したプロジェクト</Title>
-            {!isEmpty(post.frontmatter.pickupProject.projectImage) && (
+            {!isEmpty(post.acf.pickupProject.projectImage) && (
               <div className="ImageBasic">
                 <img
-                  src={post.frontmatter.pickupProject.projectImage}
-                  alt={post.frontmatter.pickupProject.projectImageAlt}
+                  src={post.acf.pickupProject.projectImage}
+                  alt={post.acf.pickupProject.projectImageAlt}
                 />
               </div>
             )}
-            {!isEmpty(post.frontmatter.pickupProject.projectUrl) ? (
+            {!isEmpty(post.acf.pickupProject.projectUrl) ? (
               <TextLink
-                to={post.frontmatter.pickupProject.projectUrl}
-                label={post.frontmatter.pickupProject.projectDescription}
+                to={post.acf.pickupProject.projectUrl}
+                label={post.acf.pickupProject.projectDescription}
               />
             ) : (
               <p className={css.ModelCases__PickupProjectDescription}>
-                {post.frontmatter.pickupProject.projectDescription}
+                {post.acf.pickupProject.projectDescription}
               </p>
             )}
           </div>
         )}
-        {!isEmpty(post.frontmatter.relativeLinks[0].relativeLinkUrl) && (
+        {!isEmpty(post.acf.relativeLinks[0].relativeLinkUrl) && (
           <>
             <Title className="LinkListTitle">関連するメソッド</Title>
             <div className="LinkList">
               <ul>
-                {post.frontmatter.relativeLinks.map((relativeLink) => (
+                {post.acf.relativeLinks.map((relativeLink) => (
                   <li key={relativeLink.relativeLinkUrl}>
                     <Link to={relativeLink.relativeLinkUrl}>
                       {relativeLink.relativeLinkTitle}
@@ -162,14 +162,14 @@ const ModelCases = (props) => {
         <div className="ContactLink">
           <div className="ContactLink__Container">
             <p className="ContactLink__Texts">
-              {post.frontmatter.contactTextFirstLine && (
+              {post.acf.contactTextFirstLine && (
                 <>
-                  {post.frontmatter.contactTextFirstLine}
+                  {post.acf.contactTextFirstLine}
                   <br />
                 </>
               )}
-              {post.frontmatter.contactTextSecondLine && (
-                <>{post.frontmatter.contactTextSecondLine}</>
+              {post.acf.contactTextSecondLine && (
+                <>{post.acf.contactTextSecondLine}</>
               )}
             </p>
             <Button
@@ -199,7 +199,7 @@ const ModelCases = (props) => {
 
 ModelCases.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
+    wordpressPost: PropTypes.object,
     site: PropTypes.object,
   }).isRequired,
 };
@@ -214,40 +214,58 @@ export const pageQuery = graphql`
         name
       }
     }
-    markdownRemark(id: { eq: $id }) {
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        caseId
-        title
-        description
-        thumbnail
+    wordpressPost(id: { eq: $id }) {
+      id
+      acf {
+        case_id
         contactTextFirstLine
         contactTextSecondLine
+        description
         introduction
-        summaryActionText
-        summaryResultText
-        modelCasesImage
+        modelCasesImage {
+          alt_text
+          caption
+          comment_status
+          date
+          description
+          id
+          link
+          media_type
+          mime_type
+          path
+          ping_status
+          post
+          slug
+          source_url
+          status
+          template
+          title
+          type
+          wordpress_id
+        }
         modelCasesImageAlt
         modelCasesImageText
-        samples {
-          sampleImage
-          sampleImageAlt
-          sampleImageCaption
-        }
-        pickupProject {
-          projectImage
-          projectImageAlt
-          projectDescription
-          projectUrl
-        }
-        relativeLinks {
-          relativeLinkUrl
-          relativeLinkTitle
-        }
+        showContactForm
+        summaryActionText
+        summaryResultText
       }
+      comment_status
+      content
+      date
+      excerpt
+      format
+      guid
+      link
+      modified
+      path
+      ping_status
+      slug
+      status
+      sticky
+      template
+      title
+      type
+      wordpress_id
     }
   }
 `;

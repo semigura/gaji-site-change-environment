@@ -5,18 +5,19 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const createPages = (createPage, posts) => {
   posts.forEach(edge => {
     if (
-      edge.node.frontmatter.type === 'index-clients' ||
-      edge.node.frontmatter.type === 'index-pickup-contents' ||
-      edge.node.frontmatter.type === 'services-modelcases' ||
-      edge.node.frontmatter.type === 'case-studies-results-list'
+      edge.node.categories[0].slug === 'uncategorized' ||
+      edge.node.categories[0].slug === 'index-clients' ||
+      edge.node.categories[0].slug === 'index-pickup-contents' ||
+      edge.node.categories[0].slug === 'services-modelcases' ||
+      edge.node.categories[0].slug === 'case-studies-results-list'
     ) {
       return;
     }
     createPage({
-      path: edge.node.fields.slug,
-      tags: edge.node.frontmatter.tags,
+      path: `/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`,
+      tags: edge.node.tags,
       component: path.resolve(
-        `src/templates/${String(edge.node.frontmatter.type)}.jsx`,
+        `src/templates/${String(edge.node.categories[0].slug)}.jsx`,
       ),
       context: {
         id: edge.node.id,
@@ -28,8 +29,8 @@ const createPages = (createPage, posts) => {
 const createProjectPagesPerTags = (createPage, posts) => {
   let tags = [];
   posts.forEach(edge => {
-    if (_.get(edge, `node.frontmatter.tags`)) {
-      tags = tags.concat(edge.node.frontmatter.tags);
+    if (_.get(edge, `node.tags`)) {
+      tags = tags.concat(edge.node.tags);
     }
   });
 
@@ -50,18 +51,14 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
-        limit: 1000
-        filter: { fields: { draft: { eq: false } } }
-      ) {
+      allWordpressPost{
         edges {
           node {
             id
-            fields {
+            path
+            title
+            categories {
               slug
-            }
-            frontmatter {
-              type
             }
           }
         }
@@ -73,7 +70,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    const posts = result.data.allWordpressPost.edges;
     createPages(createPage, posts);
     createProjectPagesPerTags(createPage, posts);
 

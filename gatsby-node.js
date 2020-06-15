@@ -17,9 +17,9 @@ const createPages = (createPage, posts) => {
     if (
       edge.node.categories[0].slug === 'model-cases'
     ) {
-      pagePath = `/case-studies/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`
+      pagePath = `/case-studies/${String(edge.node.categories[0].slug)}/${String(edge.node.slug)}`
     } else {
-      pagePath = `/${String(edge.node.categories[0].slug)}${String(edge.node.path)}`
+      pagePath = `/${String(edge.node.categories[0].slug)}/${String(edge.node.slug)}`
     }
     createPage({
       path: pagePath,
@@ -64,6 +64,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             id
             path
+            slug
             title
             categories {
               slug

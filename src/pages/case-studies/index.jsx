@@ -142,7 +142,7 @@ const CaseStudies = ({ data }) => {
               <ul>
                 {modelCases.map(post => (
                   <li key={post.id}>
-                    <Link to={`/case-studies/model-cases${post.path}`} label={post.title}>
+                    <Link to={`/case-studies/model-cases/${post.slug}/`} label={post.title}>
                       {post.title}
                     </Link>
                   </li>
@@ -265,6 +265,7 @@ export const pageQuery = graphql`
         node {
           id
           path
+          slug
           title
           date(formatString: "YYYY.MM.DD")
           categories {

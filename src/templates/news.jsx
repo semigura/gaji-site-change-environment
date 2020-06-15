@@ -101,28 +101,6 @@ export const pageQuery = graphql`
         introduction
         showContactForm
       }
-      featured_media {
-        id
-        alt_text
-        caption
-        comment_status
-        date
-        description
-        link
-        media_type
-        mime_type
-        modified
-        path
-        ping_status
-        post
-        source_url
-        slug
-        status
-        template
-        title
-        type
-        wordpress_id
-      }
     }
   }
 `;

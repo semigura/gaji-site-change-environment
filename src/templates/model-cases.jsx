@@ -78,13 +78,13 @@ const ModelCases = (props) => {
               <dd>{post.acf.summaryResultText}</dd>
             </dl>
           </div>
-          {post.acf.modelCasesImage && (
+          {/* post.acf.modelCasesImage && (
             <img
               src={post.acf.modelCasesImage}
               className="ImageBasic"
               alt={post.acf.modelCasesImageAlt}
             />
-          )}
+          ) */}
           {post.acf.modelCasesImageText && (
             <p>{post.acf.modelCasesImageText}</p>
           )}
@@ -223,29 +223,6 @@ export const pageQuery = graphql`
         contactTextSecondLine
         description
         introduction
-        modelCasesImage {
-          alt_text
-          caption
-          comment_status
-          date
-          description
-          id
-          link
-          media_type
-          mime_type
-          path
-          ping_status
-          post
-          slug
-          source_url
-          status
-          template
-          title
-          type
-          wordpress_id
-        }
-        modelCasesImageAlt
-        modelCasesImageText
         showContactForm
         summaryActionText
         summaryResultText

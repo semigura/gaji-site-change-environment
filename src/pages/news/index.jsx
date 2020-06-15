@@ -39,7 +39,7 @@ const News = props => {
             <li key={post.id} className={css.News__ListItem}>
               {post.date}
               <TextLink
-                to={`/news${post.path}`}
+                to={`/news/${post.slug}/`}
                 label={post.title}
                 className={css.News__ListLink}
               />
@@ -60,6 +60,7 @@ export const pageQuery = graphql`
         node {
           id
           path
+          slug
           title
           date(formatString: "YYYY.MM.DD")
           categories {

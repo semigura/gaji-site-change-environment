@@ -159,7 +159,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        baseUrl: "69ca8b4877a6afd649710594806e7a78bce57f60.hl-a.getshifter.co",
+        baseUrl: "94769ca62f3884edacd189e214a960cc883590c0.hl-b.getshifter.co",
         protocol: "https",
         restApiRoutePrefix: "wp-json",
         hostingWPCOM: false,

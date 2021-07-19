@@ -56,7 +56,7 @@
     "gatsby-remark-figure-caption": "^2.0.0",
     "gatsby-source-filesystem": "^2.3.10",
     "gatsby-source-rest-api": "^0.2.3",
-    "gatsby-source-wordpress": "^3.3.10",
+    "gatsby-source-wordpress": "^4.0.8",
     "gatsby-transformer-remark": "^2.8.14",
     "gatsby-transformer-sharp": "^2.5.4",
     "markdown-it": "^11.0.0",
